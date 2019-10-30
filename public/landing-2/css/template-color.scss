@@ -1,0 +1,188 @@
+/*================================  Color CSS Start =============================*/
+/*------------------ Color Variables ----------------*/
+$PrimaryColor : #1c3ca8;
+$SecondaryColor : #87238c;
+$AlternateColor : #dcb945;
+/*------------------ Global Color css ----------------*/
+.primary-bg {
+    background-color:$PrimaryColor;
+}
+.primary-bg-dark {
+    background-color: darken($PrimaryColor, 4% );
+}
+.primary-bg-light {
+    background-color: lighten($PrimaryColor, 4% );
+}
+.secondary-bg {
+    background-color:$SecondaryColor;
+}
+.secondary-bg-dark {
+    background-color: darken($SecondaryColor, 4% );
+}
+.secondary-bg-light {
+    background-color: lighten($SecondaryColor, 4% );
+}
+.gradient-bg, .sticky-header{
+    background: linear-gradient(45deg, rgba($PrimaryColor,1) 0%, rgba($SecondaryColor,1) 100%);
+}
+.alt-color {
+    color: $AlternateColor;
+    &:hover {
+        color: darken($AlternateColor, 4% );
+    }
+}
+
+/*------------------ Button Color css ----------------*/
+.btn-alpha {
+    background-color: $AlternateColor;
+    &:hover{
+        background-color: $SecondaryColor;
+    }
+}
+.section-heading{
+    border-left:4px solid $AlternateColor;
+}
+/*------------------ Nav bar Color css ----------------*/
+.navbar .nav-item{
+	.active {
+	color:$AlternateColor !important;
+	}
+}
+.navbar-toggler{
+	 &.collapsed{
+	 	span{
+            background-color: $AlternateColor;
+        }
+        span:nth-child(2){
+            background: $AlternateColor;
+        }
+	}
+}
+/*------------------ Banner section Color css ----------------*/
+.banner{
+    background: url(../images/common-bg1.png) center center/cover, linear-gradient(45deg, rgba($PrimaryColor,1) 0%, rgba($SecondaryColor,1) 100%);
+}
+
+.timer-box {
+    background: linear-gradient(45deg, rgba($PrimaryColor,.7) 0%, rgba($SecondaryColor,.8) 100%);
+    h2 {
+       &:after {
+        background: $AlternateColor;
+    } 
+    }
+    
+}
+.timer-box-inner {
+    background: linear-gradient(45deg, rgba($PrimaryColor,1) 0%, rgba($SecondaryColor,1) 100%);
+}
+.timer-text{
+	 i {
+    	border: 2px solid $AlternateColor;
+	}
+}
+div.timer{
+	span{
+	    color: $AlternateColor;
+	}
+}
+/*------------------ Problem / Solution section Color css ----------------*/
+
+.linear-gradient-bg{
+    background-image: url(../images/common-bg.png), linear-gradient(90deg, rgba($PrimaryColor,0.8) 50%, rgba($SecondaryColor,0.8) 50%);
+    background-size:cover;
+}
+/*------------------ Team Color css ----------------*/
+.team-image{
+	background: linear-gradient(45deg, rgba($PrimaryColor,0.7) 0%, rgba($SecondaryColor,0.7) 100%);
+    box-shadow: 0 0 4px 0 $PrimaryColor;
+    &:before {
+        background-image: linear-gradient(to top left, rgba($PrimaryColor,0.3) 0%, rgba($SecondaryColor,0.3) 100%);
+    }
+    &:hover {
+       background: linear-gradient(45deg, rgba($SecondaryColor,1) 0%, rgba($PrimaryColor,1) 100%);
+       box-shadow: 0 0 4px 0 $SecondaryColor; 
+    }
+}
+
+ul.social{
+    border-top:1px solid rgba($SecondaryColor,0.1);
+	a{
+		color: $PrimaryColor;
+	    &:hover{
+	    color: $SecondaryColor;
+	    }
+	}
+}
+/*------------------ FAQ Color css ----------------*/
+
+.bullets{
+	&:before{
+    	background: $AlternateColor;
+
+	}
+	i {
+        color:$AlternateColor;
+    }
+}
+.faq-cta a {
+    color:$AlternateColor;
+}
+/*------------------ App section Color css ----------------*/
+.store span{
+    color: $PrimaryColor;
+}
+/*------------------ Road Map Color css ----------------*/
+.timeline-marker {
+	&:before {
+        background: $PrimaryColor;
+    }
+}
+.timeline-item:not(.period):hover .timeline-marker:before {
+    background: transparent;
+    border: 3px solid $PrimaryColor;
+}
+ .marker-outline {
+    .timeline-marker {
+        &:before {
+            background: transparent;
+            border-color: $PrimaryColor;
+        }
+    }
+    .timeline-item:hover .timeline-marker:before {
+        background: $PrimaryColor;
+    }
+}
+/*------------------ Form Color css ----------------*/
+.form-control {
+	border-color:$PrimaryColor;
+    &:focus {
+    	border-color: $AlternateColor;
+    }
+}
+/*------------------ Footer Color css ----------------*/
+.footer{
+    background: url(../images/common-bg.png), linear-gradient(315deg, rgba($SecondaryColor,1) 0%, rgba($PrimaryColor,1) 100%);
+    background-size: cover;
+}
+/*------------------ Preloader Color css ----------------*/
+.loader-dots .circle-1{
+    background-color: $PrimaryColor;
+  }
+.loader-dots .circle-2 {
+    background-color: $SecondaryColor;
+}
+@media (max-width: 767px) {
+    .linear-gradient-bg{
+        background: linear-gradient(45deg, rgba($PrimaryColor,1) 0%, rgba($SecondaryColor,1) 100%);
+        //background-image: url(../images/common-bg.png), linear-gradient(180deg, rgba($PrimaryColor,0.8) 50%, rgba($SecondaryColor,0.8) 50%);
+    }
+}
+/*------------------ Gear box Color css ----------------*/
+ .gear-box{
+    span{
+        background-color: $PrimaryColor;
+        &:before{
+            background-color: $SecondaryColor;
+        }    
+    }
+}

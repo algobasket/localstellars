@@ -1,0 +1,10 @@
+{
+    "require": {
+        "facebook/graph-sdk": "^5.7",
+        "league/oauth2-google": "^3.0",
+        "google/recaptcha": "^1.2",
+        "sendgrid/sendgrid": "^7.3",
+        "bitpay/php-client": "~2.2",
+        "jdenticon/jdenticon": "^0.10.0" 
+    }
+}

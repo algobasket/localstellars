@@ -1,0 +1,141 @@
+/*================================  Color CSS Start =============================*/
+/*------------------ Global Color css ----------------*/
+.primary-bg {
+  background-color: #011a27; }
+
+.primary-bg-dark {
+  background-color: #000d13; }
+
+.primary-bg-light {
+  background-color: #02273b; }
+
+.secondary-bg {
+  background-color: #063852; }
+
+.secondary-bg-dark {
+  background-color: #052b3f; }
+
+.secondary-bg-light {
+  background-color: #074565; }
+
+.gradient-bg, .sticky-header {
+  background: -webkit-linear-gradient(45deg, #011a27 0%, #063852 100%);
+  background: linear-gradient(45deg, #011a27 0%, #063852 100%); }
+
+.alt-color {
+  color: #f0810f; }
+  .alt-color:hover {
+    color: #dd770e; }
+
+/*------------------ Button Color css ----------------*/
+.btn-alpha {
+  background-color: #f0810f;
+}
+.btn-alpha:hover {
+  background-color: #063852;
+}
+
+
+.section-heading {
+  border-left: 4px solid #f0810f; }
+
+/*------------------ Nav bar Color css ----------------*/
+.navbar .nav-item .active {
+  color: #f0810f !important; }
+
+.navbar-toggler.collapsed span {
+  background-color: #f0810f; }
+.navbar-toggler.collapsed span:nth-child(2) {
+  background: #f0810f; }
+
+/*------------------ Banner section Color css ----------------*/
+.banner {
+  background: url(../images/common-bg1.png) center center/cover, -webkit-linear-gradient(45deg, #011a27 0%, #063852 100%);
+  background: url(../images/common-bg1.png) center center/cover, linear-gradient(45deg, #011a27 0%, #063852 100%); }
+
+.timer-box {
+  background: -webkit-linear-gradient(45deg, rgba(1, 26, 39, 0.7) 0%, rgba(6, 56, 82, 0.8) 100%);
+  background: linear-gradient(45deg, rgba(1, 26, 39, 0.7) 0%, rgba(6, 56, 82, 0.8) 100%); }
+  .timer-box h2:after {
+    background: #f0810f; }
+
+.timer-box-inner {
+  background: -webkit-linear-gradient(45deg, #011a27 0%, #063852 100%);
+  background: linear-gradient(45deg, #011a27 0%, #063852 100%); }
+
+.timer-text i {
+  border: 2px solid #f0810f; }
+
+div.timer span {
+  color: #f0810f; }
+
+/*------------------ Problem / Soluction section Color css ----------------*/
+.linear-gradient-bg {
+  background-image: url(../images/common-bg.png), -webkit-linear-gradient(0deg, rgba(1, 26, 39, 0.8) 50%, rgba(6, 56, 82, 0.8) 50%);
+  background-image: url(../images/common-bg.png), linear-gradient(90deg, rgba(1, 26, 39, 0.8) 50%, rgba(6, 56, 82, 0.8) 50%);
+  background-size: cover; }
+
+/*------------------ Team Color css ----------------*/
+
+ul.social {
+  border-top: 1px solid rgba(6, 56, 82, 0.1); }
+  ul.social a {
+    color: #011a27; }
+    ul.social a:hover {
+      color: #063852; }
+
+/*------------------ FAQ Color css ----------------*/
+.bullets:before {
+  background: #f0810f; }
+.bullets i {
+  color: #f0810f; }
+
+.faq-cta a {
+  color: #f0810f; }
+
+/*------------------ App section Color css ----------------*/
+.store span {
+  color: #011a27; }
+
+/*------------------ Road Map Color css ----------------*/
+.timeline-marker:before {
+  background: #011a27; }
+
+.timeline-item:not(.period):hover .timeline-marker:before {
+  background: transparent;
+  border: 3px solid #011a27; }
+
+.marker-outline .timeline-marker:before {
+  background: transparent;
+  border-color: #011a27; }
+.marker-outline .timeline-item:hover .timeline-marker:before {
+  background: #011a27; }
+
+/*------------------ Form Color css ----------------*/
+.form-control {
+  border-color: #011a27; }
+  .form-control:focus {
+    border-color: #f0810f; }
+
+/*------------------ Footer Color css ----------------*/
+.footer {
+  background: url(../images/common-bg.png), -webkit-linear-gradient(135deg, #063852 0%, #011a27 100%);
+  background: url(../images/common-bg.png), linear-gradient(315deg, #063852 0%, #011a27 100%);
+  background-size: cover; }
+
+/*------------------ Preloader Color css ----------------*/
+.loader-dots .circle-1 {
+  background-color: #011a27; }
+
+.loader-dots .circle-2 {
+  background-color: #063852; }
+
+@media (max-width: 767px) {
+  .linear-gradient-bg {
+    background: -webkit-linear-gradient(45deg, #011a27 0%, #063852 100%);
+    background: linear-gradient(45deg, #011a27 0%, #063852 100%); } }
+/*------------------ Gear box Color css ----------------*/
+.gear-box span {
+  background-color: #011a27; }
+  .gear-box span:before {
+    background-color: #063852; }

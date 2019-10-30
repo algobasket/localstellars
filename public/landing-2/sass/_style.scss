@@ -1,0 +1,978 @@
+/*=================== MASTER STYLESHEET =====================
+    Project     :   Bitency TEMPLATES
+    Version     :   1.0
+    Last Change :   27/10/2018
+    Primary Use :   Crypto Currency ICO
+    Author Name :   PS Themes
+==============================================================*/
+/*=================== LAYOUT =================================
+    1. Global Style
+    2. Header CSS /  .site-loader, .site__layer, .navbar
+       2.1 Pre-loader CSS / .loader-dots   
+    3. Banner Section CSS / #banner
+       3.1 Countdown CSS /  .timer-section
+    4. Why us CSS  / #why-us
+    5. About CSS / #about  
+    6. Roadmap CSS / #roadmap
+    7. Team CSS / #team      
+    8. FAQ CSS  / #faq
+    9. Mobile App CSS  / #app
+    10. Partners CSS  / #partner
+    11. Contact CSS / #contact
+    12. Form Notification CSS / .notification
+    13. Footer CSS  / #footer
+===================================================================*/
+
+/*===================== Color Codes =================================
+    Body Background   : white (#fff)
+    Text Color : White (#fff) and Black (#000)
+    Button Background : Graidient $PrimaryColor and $AlternateColor
+    Linear Gradient Background : Graidient $PrimaryColor and $SecondaryColor
+    Light Gray Background : $GrayColor (#f7f7f7)
+=====================================================================*/
+
+/*===================== TYPOGRAPHY =================================
+    Heading   :     font-family: 'Poppins', sans-serif;
+    Body      :     font-family: 'Work Sans', sans-serif;
+=====================================================================*/
+/*==================== 1.Global Style =================================*/
+$TextColor : #000;
+$GrayColor: #f7f7f7;
+ body {
+    font-family: 'Work Sans', sans-serif;
+    color: $TextColor;
+    line-height: 1.4;
+}
+ h1,h2,h3,h4,h5,h6,p,ul,ol,table {
+     margin:0 0 18px 
+}
+ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+     line-height:1.3;
+     font-weight:700;
+     font-family: 'Poppins', sans-serif;
+}
+ a:hover, a:active, a:focus, a{
+     text-decoration: none;
+}
+ a, button{
+     transition: 0.3s;
+}
+ hr {
+     border-top: 1px solid #d7d7d7;
+     margin-top: 3rem;
+     margin-bottom: 3rem;
+}
+ button{
+     background-color: transparent 
+}
+ input:active, input:focus, a:hover, a:active, a:focus, button:hover, button:active, button:focus, {
+     outline: none;
+}
+ input:active, input:focus{
+     box-shadow: none;
+}
+ textarea{
+     resize:none;
+}
+ iframe{
+     width: 100% !important;
+}
+ strong{
+     font-weight: 900;
+}
+ .mt-10 {
+     margin-top:7em;
+}
+ .w-40 {
+     width:40%;
+}
+ .card {
+     border:none;
+     box-shadow:0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+ .btn:focus, input:active, input:focus{
+     outline: none;
+}
+ .text-muted{
+     opacity: 0.7;
+     color:#f5f5f5;
+}
+.gray-light-bg{
+     background-color: $GrayColor;
+}
+ .btn-alpha, .btn-white{
+     transition: 0.2s ease;
+     border-radius: 4px;
+     padding: 0 2em !important;
+     border: none;
+     box-shadow:0px 10px 30px rgba(0,0,0,0.1);
+     font-weight: 500;
+     display: inline-block;
+     line-height: 3em !important;
+     font-size: 0.85em;
+     text-transform: uppercase;
+}
+ .btn-alpha {
+     color: #fff !important;
+     border: 2px solid tranparent;
+}
+ .btn-white{
+     color: #fff;
+     border: 2px solid #fff;
+     &:hover{
+         background-color:#fff !important;
+         color: $TextColor !important;
+    }
+}
+.btn:focus {
+     box-shadow: unset;
+}
+ @media (min-width: 992px){
+    .t-burger{
+     padding-top: 7em;
+    }
+     .b-burger{
+         padding-bottom: 7em;
+    }
+     .burger{
+         padding: 7em 0;
+    }
+     .guter{
+         padding: 0 8em;
+    }
+ }
+ #particles-js {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-color: transparent;
+     background-image: url("");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: 50% 50%;
+}
+ .lead {
+    margin-top: 1rem;
+} 
+ .btn-groups li {
+     display: inline-block;
+     margin: 10px 15px;
+}
+ .shade {
+     position: absolute;
+     left: 2.5em;
+     bottom: 0;
+     width: 100%;
+     height: calc(100% - 0px);
+     border-radius: 0 0 0 7em;
+     background-image: linear-gradient(to top right, #fff 0%, transparent 50%, transparent 100%);
+     opacity: .15;
+     transform: skew(-15deg);
+}
+ .shade::after {
+     position: absolute;
+     left: 2em;
+     bottom: 3.5em;
+     width: 100%;
+     height: 100%;
+     content: '';
+     border-radius: 0 0 0 2em;
+     background-image: linear-gradient(to top right, #fff 0%, transparent 40%, transparent 100%);
+}
+ .shade2 {
+     left: 1.2em;
+     bottom: 3em;
+     border-radius: 0 0 0 3em;
+     transform: skew(0deg);
+}
+ .shade2::after {
+     position: absolute;
+     left: 4.5em;
+     bottom: 3.5em;
+     border-radius: 0 0 0 2em;
+}
+ .section-heading {
+     padding-left:0.4em;
+}
+.info-box:not(:last-child) {
+    margin-bottom:1.5em;
+}
+ .info-box {
+     box-shadow:0px 2px 4px rgba(0,0,0,0.1);
+     padding:1em;
+     border-radius:4px;
+     h6 {
+         margin:0 0 0.3em;
+    }
+     p {
+         margin:0; 
+         opacity: .8;
+    }
+}
+.small-heading {
+    font-size:0.8em;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    opacity:0.5;
+}
+.lh-1 {
+	line-height: 1;
+}
+/*---------------------------------- 2. Header CSS ------------------------------------*/
+ .bg-dark-overlay {
+     background: linear-gradient(to bottom, rgba(0,0,0,0.8) 97%, rgba(255,255,255,.3) 100%);
+     position: absolute;
+     height: 100%;
+     width: 100%;
+     top: 0;
+     right: 0;
+     &.active{
+         z-index: 6;
+    }
+}
+.site__layer{
+     transform: scale3d(1,0,1);
+     transform-origin: top;
+     transition: .4s cubic-bezier(0.43, 0.77, 0.33, 0.96);
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.7);
+     z-index: 999;
+     &.active{
+         transform: scale3d(1,1,1);
+    }
+}
+ .navbar {
+     position: fixed;
+     width: 100%;
+     z-index:999;
+     .nav-item-divider {
+         display: block;
+         .nav-link > span {
+             border-left: 3px solid #fff;
+        }
+    }
+}
+ .navbar .nav-item {
+     margin-left: 0.4em;
+     a {
+         color:#fff !important;
+         font-weight: 500;
+    }
+}
+ .navbar-toggler{
+     width: 1.8em;
+     cursor: pointer;
+     position: relative;
+     right: 0;
+     top: 0;
+     height: 2em;
+     z-index: 6;
+     border-color: transparent !important;
+     color: unset !important;
+     span{
+         display: block;
+         height: .12em;
+         width: 100%;
+         left: 0;
+         background-color: #fff;
+         position: absolute;
+         border-radius: 100px;
+         transform-origin: center;
+         transition: all .3s;
+    }
+     &:hover span{
+         background: #fff;
+    }
+     span:nth-child(1){
+         transform: rotate(-135deg);
+         top: 20px;
+    }
+     span:nth-child(2){
+         top: 20px;
+         background-color: transparent;
+    }
+     span:nth-child(3){
+         transform: rotate(135deg);
+         top: 20px;
+    }
+     &.collapsed{
+         position: relative;
+         span:nth-child(1){
+             top: 12px;
+             transform: rotate(0deg);
+        }
+         span:nth-child(2){
+             top: 20px;
+        }
+         span:nth-child(3){
+             transform: rotate(0deg);
+             top: 28px;
+        }
+    }
+}
+ .navbar.sticky-header {
+     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+/*------------------------- 2.1 Pre-loader CSS ------------------------*/
+ .site-loader {
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #fff;
+     z-index: 9;
+}
+ .loader-dots {
+     margin: 40px auto;
+     width: 40px;
+     height: 40px;
+     position: relative;
+     text-align: center;
+     -webkit-animation: circleRotation 2s infinite linear;
+     animation: circleRotation 2s infinite linear;
+}
+ .loader-dots .circle {
+     width: 60%;
+     height: 60%;
+     display: inline-block;
+     position: absolute;
+     top: 0;
+     border-radius: 100%;
+     -webkit-animation: circleBouncing 2s infinite ease-in-out;
+     animation: circleBouncing 2s infinite ease-in-out;
+}
+ .loader-dots .circle-2 {
+     top: auto;
+     bottom: 0;
+     -webkit-animation-delay: -1s;
+     animation-delay: -1s;
+}
+ @-webkit-keyframes circleRotation {
+     100% {
+         -webkit-transform: rotate(360deg);
+         transform: rotate(360deg);
+    }
+}
+ @keyframes circleRotation {
+     100% {
+         -webkit-transform: rotate(360deg);
+         transform: rotate(360deg);
+    }
+}
+ @-webkit-keyframes circleBouncing {
+     0%, 100% {
+         -webkit-transform: scale(0);
+         transform: scale(0);
+    }
+     50% {
+         -webkit-transform: scale(1);
+         transform: scale(1);
+    }
+}
+ @keyframes circleBouncing {
+     0%, 100% {
+         -webkit-transform: scale(0);
+         transform: scale(0);
+    }
+     50% {
+         -webkit-transform: scale(1);
+         transform: scale(1);
+    }
+}
+/*---------------------------------- 3. Banner Section CSS ------------------------------------*/
+ .banner {
+     color:#fff;
+     height: 100vh;
+     overflow: hidden;
+     position: relative;
+     h1 {
+         font-size: 2.5em;
+    }
+    .lead {
+        opacity:0.7;
+        font-weight:400;
+    }
+}
+ .banner-full{
+     &:after {
+         display: block;
+         content: '';
+         height: 100%;
+         background-image: url(../images/wave.png);
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: bottom;
+         position: absolute;
+         bottom: -.79vh;
+         left: -4%;
+         right: -4%;
+         z-index: 1;
+    }
+}
+/*---------- 3.1 Countdown CSS -----------*/
+ .timer-box {
+     margin: 0px auto;
+     box-shadow: 0 0 12px rgba(0,0,0,.1);
+     padding:5em 2.5em;
+     border-radius: 6px;
+     width:100%;
+     h2{
+         position: relative;
+         font-size: 1.3em;
+         &:after {
+             content: "";
+             position: absolute;
+             width: 2.3em;
+             height: .13em;
+             left: 0;
+             right: 0;
+             bottom: -12px;
+             margin: 0 auto;
+             border-radius: 4em;
+        }
+    }
+}
+ .timer-text {
+     font-size: .9em;
+     i {
+         border-radius: 4em;
+         margin: 0 10px;
+    }
+}
+ div.timer {
+     display: flex;
+     justify-content: space-between;
+     margin: 3em 0 1.2em 0;
+     min-height: 4em;
+     div{
+         font-size: 3em;
+         text-align: center;
+         width: 25%;
+         display: inline-block;
+         line-height: 1.2;
+         font-weight: 500;
+    }
+     span{
+         font-size: 0.3em;
+         display: block;
+         font-weight: 500;
+    }
+}
+/*------------------------- 4. Why us CSS ------------------------*/
+ .why-us {
+     .card-img-top {
+         width:15%;
+         margin:2.3em auto 0;
+    }
+     .card-body {
+         padding: 1.5em 1.25rem 2.3em;
+    }
+     .why-card {
+         padding:2em;
+    }
+     .card{
+         display: block !important;
+         height: 100%;
+    }
+}
+@media (min-width: 768px){
+    .why-card {
+        &:last-child, &:nth-child(4){
+            padding-bottom: 0;
+         }
+    }
+
+}
+@media (min-width: 992px){
+    .why__card_wrapr{
+        margin: 0 -2em;
+    }
+}
+/*------------------------- 5. About CSS ------------------------*/
+ .about {
+    
+     .about-inner {
+         p:last-child{
+            margin-bottom: 0;
+         }
+         p{
+            opacity:0.8;
+         }
+    }
+}
+@media (min-width: 992px){
+    .about-inner{
+        img{
+            margin-bottom: 4.5em;
+         }
+    }
+    .distribution .timer-box{
+        padding: 2.1em 1.7em;
+        .timer div{
+            font-size: 2.6em;
+        }
+    }
+}
+
+
+/*------------------------- 6. Roadmap CSS ------------------------*/
+ .timeline {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+}
+/*----- TIMELINE ITEM -----*/
+ .timeline-item {
+     padding-left: 2em;
+     position: relative;
+}
+/*----- TIMELINE INFO -----*/
+ .timeline-info {
+     font-size: 1em;
+     font-weight: 699;
+     letter-spacing: 0.3px;
+     margin: 0 0 .5em 0;
+     opacity: .3;
+     text-transform: uppercase;
+     white-space: nowrap;
+}
+/*----- TIMELINE MARKER -----*/
+ .timeline-marker {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     width: 0.9em;
+     &:before {
+         border: 3px solid transparent;
+         border-radius: 100%;
+         content: "";
+         display: block;
+         height: 0.9em;
+         position: absolute;
+         top: 4px;
+         left: 0;
+         width: 0.9em;
+         transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+    }
+     &:after {
+         background: #CCD5DB;
+         content: "";
+         width: 3px;
+         display: block;
+         position: absolute;
+         top: 1.4em;
+         bottom: 0;
+         left: 0.4em;
+    }
+     .timeline-item:last-child &:after {
+         content: none;
+    }
+}
+/*----- TIMELINE CONTENT -----*/
+ .timeline-content {
+     h5 {
+        margin-bottom:7px;
+     }
+     p{
+        opacity: .7;
+        &:last-child {
+             margin-bottom: 0;
+        }
+     }
+}
+/*----- TIMELINE PERIOD -----*/
+ .period {
+     padding: 0;
+     .timeline-info {
+         display: none;
+    }
+     .timeline-marker {
+         &:before {
+             background: transparent;
+             content: "";
+             width: 0.9em;
+             height: auto;
+             border: none;
+             border-radius: 0;
+             top: 0;
+             bottom: 1.8em;
+             position: absolute;
+             border-top: 3px solid #CCD5DB;
+             border-bottom: 3px solid #CCD5DB;
+        }
+         &:after {
+             content: "";
+             height: 1.8em;
+             top: auto;
+        }
+    }
+     .timeline-content {
+         padding: 2em 0 3em;
+    }
+     .timeline-title {
+         margin: 0;
+    }
+}
+ .timeline-centered {
+     @media (min-width: 992px) {
+         &, .timeline-item, .timeline-info, .timeline-marker, .timeline-content {
+             display: block;
+             margin: 0;
+             padding: 0;
+        }
+         .timeline-item:not(:last-child) {
+             padding-bottom: 2.5em;
+        }
+         .timeline-item{
+             overflow: hidden;
+         }
+         .timeline-marker {
+             position: absolute;
+             left: 50%;
+             margin-left: -0.4em;
+        }
+         .timeline-info, .timeline-content {
+             width: 50%;
+        }
+         > .timeline-item:nth-child(odd) .timeline-info {
+             float: left;
+             text-align: right;
+             padding-right: 2em;
+        }
+         > .timeline-item:nth-child(odd) .timeline-content {
+             float: right;
+             text-align: left;
+             padding-left: 2em;
+        }
+         > .timeline-item:nth-child(even) .timeline-info {
+             float: right;
+             text-align: left;
+             padding-left: 2em;
+        }
+         > .timeline-item:nth-child(even) .timeline-content {
+             float: left;
+             text-align: right;
+             padding-right: 2em;
+        }
+         > .timeline-item.period .timeline-content {
+             float: none;
+             padding: 0;
+             width: 100%;
+             text-align: center;
+        }
+         .timeline-item.period {
+             padding: 2em 0 3.8em;
+        }
+         .period .timeline-marker:after {
+             height: 1.8em;
+             bottom: 0;
+             top: auto;
+        }
+         .period .timeline-title {
+             left: auto;
+        }
+    }
+}
+/*------------------------- 7. Team CSS ------------------------*/
+ .team {
+     position: relative;
+}
+ .team::before {
+     content: "";
+     background: url(../images/pattern-bg.png) 50% 50% no-repeat fixed;
+     background-size: cover;
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     top: 0;
+     left: 0;
+     opacity: .5;
+}
+ 
+.team-inner {
+    display:table;
+    background:#FFF;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:20px;
+    .team-image {
+        display:table-cell;
+        vertical-align:top;
+        width:35%;
+    }
+    .team-info {
+        display:table-cell;
+        vertical-align:middle;
+        width:65%;
+        padding:20px;
+        h5 {
+            font-size:1em;
+        }
+    }
+}
+
+ ul.social{
+     margin: 0;
+     li{
+         display: inline-block;
+         margin-top:0.7em;
+    }
+     a{
+         font-size: 1em;
+         margin-right: 0.5em;
+    }
+}
+/*------------------------- 8. FAQ CSS ------------------------*/
+ .faq{
+     background-repeat: no-repeat;
+     background-position:right;
+     .card {
+         border: none !important;
+         box-shadow: 0 3px 13px rgba(0, 0, 0, 0.05);
+         margin-bottom: 20px;
+         padding: 0;
+         position: relative;
+         overflow: hidden; 
+         border-radius: .25em !important;
+    }
+     .card:last-child{
+         margin-bottom:0;
+    }
+     .card-header{
+         padding: 0;
+         border-bottom: none;
+         background: #fff;
+         div {
+             padding: 0.7em 2em 0.7em 3.2em;
+             transition: all ease .3s;
+             font-size: 1em;
+             font-weight: 600;
+             position: relative;
+             cursor: pointer;
+             &::after {
+                 content: "\f106";
+                 font-family: Font Awesome\ 5 Free;
+                 font-size: 1.0em;
+                 position: absolute;
+                 right: 1.4em;
+                 top: 0.6em;
+            }
+        }
+         div.collapsed{
+             &:after {
+                 content: "\f107";
+            }
+        }
+    }
+     .card-body {
+         padding: 0em 3em 0em 3em;
+    }
+     span {
+         font-size: 1.2em;
+         font-weight: 400;
+         position: absolute;
+         left: 1em;
+         top: 0.55em;
+    }
+     .bullets li {
+         padding-left:0;
+         list-style:none;
+         &:before {
+             content: inherit;
+        }
+    }
+    h5{
+        font-size: 1.15em;
+        font-weight:600;
+    }
+}
+ .n-d-flex {
+     display:inherit;
+}
+ .bullets {
+     padding-left:0em;
+     li {
+         margin-bottom:0.8em;
+         position:relative;
+         padding-left: 1.3em;
+         &:before {
+             position: absolute;
+             top: 0.5em;
+             left: 0px;
+             height: 0.4em;
+             width: 0.4em;
+             content: '';
+             border-radius: 50%;
+        }
+    }
+    i {
+        margin-right:.2em;
+    }
+}
+ .nav-pills {
+    width:190px;
+    margin:0 auto;
+     a {
+         color:#fff;
+         font-weight:400;
+    }
+    li {
+         width:95px !important;
+    }
+     .nav-link {
+         border-radius: 0;
+         border-right: 1px solid $GrayColor;
+         padding:0.8rem 1rem;
+         background:#FFF;
+         color:#000;        
+    }
+
+     .active {       
+         background-color:  #EEE !important;
+         color:#000 !important;
+    }
+}
+
+/*------------------------- 9. Mobile App CSS ------------------------*/
+ .store span {
+     background-color: #ffffff;
+     border-radius: 100%;
+     display: inline-block;
+     font-size: 2.2em;
+     height: 1.5em;
+     line-height: 1.6em;
+     margin-left: -0.5em;
+     text-align: center;
+     vertical-align: middle;
+     width: 1.5em;
+     transition: all .5s ease 0s;
+}
+.app-info {
+    ul {
+        margin-top:20px !important;
+    }
+    li {
+        border-bottom:1px solid #DDD;
+        padding:15px 0;
+        list-style:square;
+        &:last-child {
+            border-bottom:none;
+        }
+    }    
+}
+.store-btn {
+    width:150px;
+    display:inline-block;
+    img {
+        max-width:100%;
+    }
+}
+.store-btn img:hover {
+        box-shadow:0 2px 14px rgba(0,0,0,0.2);
+    }
+/*------------------------- 10. Partner CSS ------------------------*/
+.partners-list img {
+     margin: 0 auto;
+     padding: 2em 1em;
+     transition: all ease .3s;
+     opacity: 0.45;
+     &:hover {
+         opacity:1;
+    }
+}
+@media(min-width: 992px){
+    .partners-list{
+        margin-bottom: -2em;
+    }
+}
+/*------------------------- 11. Contact CSS ------------------------*/
+@media(min-width: 992px){
+    .contact_wrapr {
+        padding: 3.5em calc(3.5em + 15px) 3.5em calc(3.5em - 15px);
+    }
+}
+.contact-info {   
+    i {
+        font-size:1.5em;
+        opacity:0.6;
+    }
+}
+.form-control {
+     background-color: #efefef;
+     border:inherit;
+     padding:.7rem .75rem;
+     border-radius: 0;
+     height: calc(2.35rem + 5px);
+     &:focus {    
+         background-color: #DDD;        
+         border-color: inherit;
+         box-shadow:inherit;
+    }
+}
+/*--------------------- 12. Form Notification CSS -----------------*/
+ .notification {
+     padding: 15px;
+     margin-top: .5em;
+     color: #666;
+     font-size: .9em;
+     font-weight: 600;
+     position: absolute;
+     padding: 15px 15px 15px 55px;
+     z-index: 2;
+     transition: transform ease .3s;
+     transform: rotate3d(1, 0, 0, 90deg);
+     perspective: 1000px;
+     box-shadow: 1px 4px 13px rgba(0, 0, 0, 0.05);
+     &:after{
+         content: "";
+         width: 30px;
+         height: 30px;
+         background-position: center;
+         position: absolute;
+         left: 15px;
+         background-size: cover;
+         top: calc(50% - 15px);
+    }
+}
+ .notification.success, .notification.error{
+     transform: rotate(0deg);
+     display: block;
+}
+ .notification.contact {
+     top: 85%;
+     width: 100%;
+}
+ .notification.subscribe {
+     top: 3.2em;
+     text-align: left;
+     left: 0;
+     right: 0;
+}
+ .notification.success{
+     background-color: #dff0d8;
+     &:after{
+         background-image: url(../images/checked.svg);
+    }
+}
+ .notification.error{
+     background-color: #f2dede;
+     &:after{
+         background-image: url(../images/warning.svg);
+    }
+}
+/*------------------------- 13. footer CSS ------------------------*/
+ .footer-social a {
+   color:#FFF;
+ }
+ .copyright p {
+    font-size:0.8em;
+ }

@@ -1,0 +1,14 @@
+{
+  "name": "cryptocurrency-icon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cryptocurrency-icons": "^0.15.0"
+  }
+}
