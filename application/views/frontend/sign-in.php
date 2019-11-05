@@ -16,12 +16,13 @@
 </head>
 
 <body class="page-ath">
-    
+
     <div class="page-ath-wrap">
-        <div class="page-ath-content" style="background-color: goldenrod">
+        <div class="page-ath-content" style="background-color: #f2f3f1d1">
             <div class="page-ath-header">
                 <a href="<?php echo base_url();?>" class="page-ath-logo">
-                    <img src="<?php echo base_url();?>/public/landing-2/images/logo.png" srcset="<?php echo base_url();?>public/landing-2/images/logo.png 2x" alt="logo"></a> 
+                    <img src="<?php echo base_url();?>/public/images/localstellars-logo2.png" srcset="<?php echo base_url();?>public/landing-2/images/logo.png 2x" alt="logo">
+							  </a>
             </div>
             <div class="page-ath-form">
                 <h2 class="page-ath-heading"><?php echo $this->lang->line('auth_page_ath_heading');?></h2>
@@ -46,7 +47,7 @@
                     <input type="submit" class="btn btn-primary btn-block" name="login" value="<?php echo $this->lang->line('auth_signin');?>" >
 
 
-                    
+
                <!--  <div class="sap-text">
                     <span><?php echo $this->lang->line('auth_or_sign_in_with');?></span>
                 </div> -->
@@ -55,11 +56,11 @@
                     <li class="col"><a href="<?php echo base_url();?>auth/facebook" class="btn btn-outline btn-dark btn-facebook btn-block"><em class="fab fa-facebook-f"></em><span>Facebook</span></a></li>
                     <li class="col"><a href="<?php echo base_url();?>auth/google" class="btn btn-outline btn-dark btn-google btn-block"><em class="fab fa-google"></em><span>Google</span></a></li>
                 </ul> -->
-                
+
                 <div class="gaps-2x"></div>
                 <div class="gaps-2x"></div>
                 <div class="form-note">
-                    <?php echo $this->lang->line('auth_dont_have_an_account');?> 
+                    <?php echo $this->lang->line('auth_dont_have_an_account');?>
                     <a href="<?php echo base_url();?>Auth/signup"> <strong><?php echo $this->lang->line('auth_signup_here');?></strong></a>
                 </div>
             </div>
@@ -76,7 +77,7 @@
                <div class="col-md-8 col-xl-5">
                    <img src="<?php //echo base_url();?>/public/images/ath-gfx.png" alt="image">
                </div>
-           </div>   -->          
+           </div>   -->
         </div>
     </div>
 

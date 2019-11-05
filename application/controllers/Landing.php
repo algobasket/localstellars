@@ -1,48 +1,57 @@
 <?php
 Class Landing extends ParentController{
-    
+
+
     /**
      * [__construct description]
      */
-	function __construct(){
-		parent::__construct();
-	}
-    
+		function __construct()
+		{
+			parent::__construct();
+		}
+
+
     /**
      * [index description]
      * @return [type] [description]
      */
-	// function index()
-	// {
-		
-	// 	$this->load->view('landing');
-	// }
-    
-    /**
-     * [index2 description]
-     * @return [type] [description]
-     */
-	function index()
-	{   
-        $data['out'] = $this->Site_m->isSiteUnderMaintainance();
-        if($data['out'])
-        {
-            $this->load->view('frontend/maintainance',$data);
-        }else{
-            $this->load->view('landing-2');
-        }
-	}
+		function index()
+		{
+	        $data['out'] = $this->Site_m->isSiteUnderMaintainance();
+					$data2['deviceInfo'] = $this->getDeviceInfo();
+	        if($data['out'])
+	        {
+	            $this->load->view('frontend/maintainance',$data);
+	        }else{
+	            $this->load->view('landing',$data2);
+	        }
+		}
 
-    
+	  function buy()
+	  {
+
+	  }
+
+	  function sell()
+	  {
+
+	  }
+
+		function advertise()  
+		{
+      $this->load->view('frontend/advertise');
+		}
+
+
     /**
      * [whitepaper description]
      * @return [type] [description]
      */
-	function whitepaper()
-	{
-      $this->load->helper('download');
-      force_download('./public/documents/whitepaper.pdf', NULL);
-	} 
+		function whitepaper()
+		{
+	      $this->load->helper('download');
+	      force_download('./public/documents/whitepaper.pdf', NULL);
+		}
 
 
 
@@ -52,15 +61,15 @@ Class Landing extends ParentController{
      */
     function newsletter()
     {
-           if ($_SERVER["REQUEST_METHOD"] == "POST") 
+           if ($_SERVER["REQUEST_METHOD"] == "POST")
            {
-            
+
             $email = filter_var(trim($_POST["subscribe_email"]), FILTER_SANITIZE_EMAIL);
-            $message = "You Subcribed Now"; 
+            $message = "You Subcribed Now";
             $email_content = "Email: $email\n\n";
             $email_content = "Message:\n$message\n";
             //echo $email_content ;
-            if ( /*empty($name)  OR empty($message) OR*/ !filter_var($email, FILTER_VALIDATE_EMAIL)) 
+            if ( /*empty($name)  OR empty($message) OR*/ !filter_var($email, FILTER_VALIDATE_EMAIL))
             {
                 http_response_code(400);
                 echo "Oops! There was a problem with your submission. Please complete the form and try again."; /*--------- Contact submission erroe Message ---------------*/
@@ -78,8 +87,8 @@ Class Landing extends ParentController{
                 http_response_code(500);
                 echo "Oops! Something went wrong and we couldn't send your message.";   /*--------- Contact Error Message ---------------*/
             }
-          } 
-          else 
+          }
+          else
           {
             http_response_code(403);
             echo "There was a problem with your submission, please try again."; /*--------- Contact submission erroe Message ---------------*/
@@ -91,7 +100,7 @@ Class Landing extends ParentController{
     /**
      * [contact description]
      * @return [type] [description]
-     */ 
+     */
     function contact()
     {
          if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -129,6 +138,7 @@ Class Landing extends ParentController{
         echo "There was a problem with your submission, please try again."; /*--------- Contact submission erroe Message ---------------*/
        }
     }
+
 
     function test()
     {

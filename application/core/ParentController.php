@@ -1,6 +1,6 @@
 <?php
 Class ParentController extends CI_Controller{
-	
+
 	/**
 	 * [__construct description]
 	 */
@@ -15,7 +15,7 @@ Class ParentController extends CI_Controller{
 		$this->load->model('Site_m');
 
 	}
-    
+
     /**
      * [frontend description]
      * @param  [type] $pageName [description]
@@ -23,7 +23,7 @@ Class ParentController extends CI_Controller{
      * @return [type]           [description]
      */
 	function frontend($pageName,$data)
-	{     
+	{
 	  $data['baseurl'] = base_url();
 	  $data['layout']  = $pageName;
     $data['out'] = $this->Site_m->isSiteUnderMaintainance();
@@ -34,7 +34,7 @@ Class ParentController extends CI_Controller{
        if($this->getSess('role') != 'customer')
       {
         exit("<center><h1>Sorry this page doesn't exist!</h1></center>");
-      } 
+      }
 
       if(in_array($pageName,$this->pageBlocker()))
       {
@@ -42,9 +42,9 @@ Class ParentController extends CI_Controller{
       }
       $this->load->view('common/layout',$data);
     }
-    
+
 	}
-    
+
     /**
      * [backend description]
      * @param  [type] $pageName [description]
@@ -52,26 +52,26 @@ Class ParentController extends CI_Controller{
      * @return [type]           [description]
      */
 	function backend($pageName,$data)
-	{ 
+	{
       if($this->getSess('role') != 'admin')
       {
         exit("This Page Doesn't Exist");
-      }  
+      }
       $data['baseurl'] = base_url();
 	    $data['layout']  = $pageName;
       $this->load->view('common/backend-layout',$data);
 	}
-    
+
     /**
      * [lang description]
      * @param  [type] $name [description]
      * @return [type]       [description]
      */
-	function lang($name) 
+	function lang($name)
 	{
 	  return $this->lang->line($name);
 	}
-    
+
     /**
      * [setSess description]
      * @param [type] $data [description]
@@ -80,7 +80,7 @@ Class ParentController extends CI_Controller{
 	{
       $this->session->set_userdata($data);
 	}
-    
+
     /**
      * [getSess description]
      * @param  [type] $data [description]
@@ -90,7 +90,7 @@ Class ParentController extends CI_Controller{
 	{
       return $this->session->userdata($data);
 	}
-    
+
     /**
      * [remSess description]
      * @param  [type] $data [description]
@@ -101,7 +101,7 @@ Class ParentController extends CI_Controller{
       $this->session->unset_userdata($data);
       return true;
 	}
-    
+
     /**
      * [setFlash description]
      * @param [type] $data [description]
@@ -110,7 +110,7 @@ Class ParentController extends CI_Controller{
 	{
       $this->session->set_flashdata('notify',$data);
 	}
-    
+
     /**
      * [getFlash description]
      * @return [type] [description]
@@ -119,20 +119,20 @@ Class ParentController extends CI_Controller{
 	{
       return $this->session->flashdata('notify');
 	}
-    
+
     /**
      * [isSiteUnderMaintainance description]
      * @return boolean [description]
      */
-	function isSiteUnderMaintainance() 
-	{   
-	   $data['out'] = $this->Site_m->isSiteUnderMaintainance();	
+	function isSiteUnderMaintainance()
+	{
+	   $data['out'] = $this->Site_m->isSiteUnderMaintainance();
        if($data['out'])
        {
          $this->load->view('frontend/maintainance',$data);
        }
 	}
-    
+
     /**
      * [sendEmailTemplate description]
      * @return [type] [description]
@@ -140,8 +140,8 @@ Class ParentController extends CI_Controller{
 	function sendEmailTemplate($to,$from,$fromName,$sub,$template,$data)
 	{
         $this->load->library('email');
-        
-        $html = $this->load->view('email-templates/'.$template,$data,true);       
+
+        $html = $this->load->view('email-templates/'.$template,$data,true);
         $config=array(
 		'charset'=>'utf-8',
 		'wordwrap'=> TRUE,
@@ -158,11 +158,17 @@ Class ParentController extends CI_Controller{
 		}
 	}
 
+	function getDeviceInfo()
+	{
+		device_info();
+		return $this->session->userdata('device_info');
+	}
+
 
   function pageBlocker()
   {
     $json = $this->Crud->fetchOneWhere('settings',['setting_name'=>'page_block'])['json'];
-    return json_decode($json,true); 
+    return json_decode($json,true);
   }
 
 }

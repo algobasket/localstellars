@@ -13,17 +13,17 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>public/assets/css/vendor.bundle.css?ver=104">
 	<!-- Custom styles for this template -->
 	<link rel="stylesheet" href="<?php echo base_url();?>public/assets/css/style.css?ver=104">
-	
+
 </head>
 
 <body class="page-ath">
-    
+
     <div class="page-ath-wrap">
-        <div class="page-ath-content" style="background-color: goldenrod">
+        <div class="page-ath-content" style="background-color: #f2f3f1d1">
             <div class="page-ath-header">
-                <a href="<?php echo base_url();?>" class="page-ath-logo">
-                    <img src="<?php echo base_url();?>/public/landing-2/images/logo.png" srcset="<?php echo base_url();?>public/landing-2/images/logo.png 2x" alt="logo">
-                </a>
+							<a href="<?php echo base_url();?>" class="page-ath-logo">
+									<img src="<?php echo base_url();?>/public/images/localstellars-logo2.png" srcset="<?php echo base_url();?>public/landing-2/images/logo.png 2x" alt="logo">
+							</a>
             </div>
             <div class="page-ath-form">
                 <h2 class="page-ath-heading">Reset password <span>If you forgot your password, well, then we’ll email you instructions to reset your password.</span></h2>
@@ -44,11 +44,11 @@
                 <?php echo form_close();?>
             </div>
             <div class="page-ath-footer">
-                <ul class="footer-links">
-                    <li><a href="regular-page.html">Privacy Policy</a></li>
-                    <li><a href="regular-page.html">Terms</a></li>
-                    <li>&copy; 2018 Ixinium.</li>
-                </ul>
+							<ul class="footer-links">
+									<li><a href="regular-page.html"><?php echo $this->lang->line('site_privacy_policy');?></a></li>
+									<li><a href="regular-page.html"><?php echo $this->lang->line('site_terms');?></a></li>
+									<li><?php echo $this->lang->line('site_copyright');?></li>
+							</ul>
             </div>
         </div>
         <div class="page-ath-gfx">
@@ -56,7 +56,7 @@
                <div class="col-md-8 col-xl-5">
                    <img src="<?php //echo base_url();?>public/images/ath-gfx.png" alt="image">
                </div>
-           </div>   -->          
+           </div>   -->
         </div>
     </div>
 

@@ -56,8 +56,11 @@ $route['buy-token'] = 'Token/buyToken';
 $route['ico-distribution'] = 'Welcome/ico_distribution';
 $route['transactions'] = 'Transaction/userTransactions';
 $route['activity'] = 'Welcome/activity';
-$route['referral'] = 'Welcome/referral'; 
+$route['referral'] = 'Welcome/referral';
 $route['whitepaper'] = 'Landing/whitepaper';
+$route['advertise'] = 'Landing/advertise';
+$route['buy'] = 'Landing/buy';
+$route['sell'] = 'Landing/sell';
 $route['referral/(:any)'] = 'Auth/referral/$1';
 $route['verify-email/(:any)'] = 'Auth/verifyAccountEmail/$1';
 

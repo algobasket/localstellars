@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$baseUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://".$_SERVER['HTTP_HOST']; 
+$baseUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://".$_SERVER['HTTP_HOST'];
 $config['base_url'] = $baseUrl;
 
 /*
@@ -36,7 +36,7 @@ $config['base_url'] = $baseUrl;
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = 'index.php'; 
 
 /*
 |--------------------------------------------------------------------------
@@ -530,4 +530,4 @@ function __autoload($class)
  {
   @include_once( APPPATH . 'core/'. $class . '.php' );
  }
-} 
+}

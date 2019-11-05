@@ -1,7 +1,7 @@
 <?php
- 
+
 if(!function_exists('cUser'))
-{  
+{
    /**
     * [cUser description]
     * @param  [type] $value [description]
@@ -24,7 +24,7 @@ if(!function_exists('cUser'))
 
 
 if(!function_exists('cUserDetail'))
-{  
+{
    /**
     * [lang description]
     * @param  [type] $key [description]
@@ -42,7 +42,7 @@ if(!function_exists('cUserDetail'))
 
 
 if(!function_exists('cUserDetailById'))
-{  
+{
    /**
     * [lang description]
     * @param  [type] $key [description]
@@ -52,7 +52,7 @@ if(!function_exists('cUserDetailById'))
       $ci = get_instance();
       $ci->load->model('User_m');
       $detail = $ci->User_m->getUserData($userId);
-      return $detail;  
+      return $detail;
    }
 }
 
@@ -60,7 +60,7 @@ if(!function_exists('cUserDetailById'))
 
 
 if(!function_exists('lang'))
-{  
+{
    /**
     * [lang description]
     * @param  [type] $key [description]
@@ -76,7 +76,7 @@ if(!function_exists('lang'))
 
 
 if(!function_exists('getFlash'))
-{   
+{
     /**
      * [getFlash description]
      * @return [type] [description]
@@ -91,7 +91,7 @@ if(!function_exists('getFlash'))
 
 
 if(!function_exists('device_info'))
-{  
+{
   /**
    * [device_info description]
    * @return [type] [description]
@@ -101,15 +101,22 @@ if(!function_exists('device_info'))
      require APPPATH . 'libraries/mobiledetect/Mobile_Detect.php';
      require APPPATH . 'libraries/detectdevice/detect.php';
 
-     return [
+     $ci = get_instance();
+     $ci->load->model('Crud');
+     $country = $ci->Crud->fetchOneWhere('countries',['sortname'=> Detect::ipCountry()]);
+
+     $return = [
       'deviceType'   => Detect::deviceType(),
       'ip'           => Detect::ip(),
       'ipHostname'   => Detect::ipHostname(),
       'ipOrg'        => Detect::ipOrg(),
       'ipCountry'    => Detect::ipCountry(),
       'os'           => Detect::os(),
-      'browser'      => Detect::browser()
-     ];
+      'browser'      => Detect::browser(),
+      'countryName'  => $country['name']
+     ]; 
+     $ci->session->set_userdata('device_info',$return);
+     return $return;
    }
 }
 
@@ -142,8 +149,8 @@ if(!function_exists('payment_wallet'))
 
 
 if(!function_exists('proper_time'))
-{ 
-  function proper_time($datetime) 
+{
+  function proper_time($datetime)
   {
     return date("F j, Y, g:i a",strtotime($datetime));
   }
@@ -170,15 +177,15 @@ if(!function_exists('sendgrid'))
   {
     $ci = get_instance();
     $ci->load->model('Crud');
-    $json = $ci->Crud->fetchOneWhere('settings',['setting_name' => 'sendgrid_api'])['json']; 
+    $json = $ci->Crud->fetchOneWhere('settings',['setting_name' => 'sendgrid_api'])['json'];
     $apiKey = json_decode($json,true);
     //print_r($apiKey);exit;
     require APPPATH . 'libraries/vendor/autoload.php';
 
-    $email = new \SendGrid\Mail\Mail(); 
+    $email = new \SendGrid\Mail\Mail();
     $email->setFrom($from['email'], $from['user']);
     $email->setSubject($subject);
-    $email->addTo($to['email'], $to['user']); 
+    $email->addTo($to['email'], $to['user']);
     //$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
     $email->addContent(
         "text/html", $content
@@ -193,18 +200,16 @@ if(!function_exists('sendgrid'))
         echo 'Caught exception: '. $e->getMessage() ."\n";
     }
   }
-} 
+}
 
 
 
-if(!function_exists('countries')) 
+if(!function_exists('countries'))
 {
   function countries()
   {
     $ci = get_instance();
     $ci->load->model('Crud');
     return $ci->Crud->fetchAllWhere('countries',['status'=>1]);
-  } 
-} 
-
-
+  }
+}
