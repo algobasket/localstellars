@@ -40,8 +40,10 @@ installed in your local machine, run this command to run the built-in
 web server and access the application in your browser at <http://localhost:8001>:
 
 ```bash
-$ cd my_project/
-$ symfony serve
+$ cd $HOME
+$ git clone https://github.com/algobasket/localstellar-ci.git
+$ cd localstellar-ci
+$ localstellar-ci > php -S localhost:8001 
 ```
 
 Tests
@@ -51,7 +53,7 @@ Execute this command to run tests:
 
 ```bash
 $ cd localstellar-ci/
-$ ./bin/phpunit 
+$ ./bin/phpunit
 ```
 
 [1]: https://www.php.net/downloads.php
