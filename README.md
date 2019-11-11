@@ -1,4 +1,4 @@
-LocalSellars Buy/Sell Trading Platform
+LocalStellars Buy/Sell Trading Platform
 ========================
 
 ![logo](https://raw.githubusercontent.com/algobasket/localstellar-ci/master/public/images/localstellars-logo.png?token=AB7ENWJNLCJZUEEHJ2TBAZ252KCDU)
