@@ -1,8 +1,7 @@
 LocalSellars Buy/Sell Trading Platform
 ========================
 
-The "Symfony Demo Application" is a reference application created to show how
-to develop applications following the [Symfony Best Practices][1].
+![logo](https://raw.githubusercontent.com/algobasket/localstellar-ci/master/public/images/localstellars-logo.png?token=AB7ENWJNLCJZUEEHJ2TBAZ252KCDU)
 
 Requirements
 ------------
@@ -54,4 +53,4 @@ $ ./bin/phpunit
 [2]: https://httpd.apache.org/download.cgi
 [3]: https://dev.mysql.com/downloads/mysql/
 [4]: https://www.stellar.org/developers/guides/concepts/test-net.html
-[5]: http://testnet.stellarchain.io/ 
+[5]: http://testnet.stellarchain.io/
