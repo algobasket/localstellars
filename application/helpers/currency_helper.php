@@ -9,25 +9,31 @@ if(!function_exists('currencyPrice'))
         $data = $ci->Crud->fetchOneWhere('currencies',['currency_symbol' => $currency]);
         return $data['price'];
      }
-} 
+}
 
 
 if(!function_exists('currencies'))
 {
-     function currencies()
+     function currencies($type = NULL)
      {
         $ci = get_instance();
         $ci->load->model('Crud');
-        $data = $ci->Crud->fetchAllWhere('currencies',['status' => 1]);
-        return $data;
+        if($type == 'coin'){
+          $data = $ci->Crud->fetchAllWhere('currencies',['status' => 1,'currency_type' => 'coin']);
+        }elseif($type == 'fiat'){
+          $data = $ci->Crud->fetchAllWhere('currencies',['status' => 1,'currency_type' => 'fiat']);
+        }else{
+          $data = $ci->Crud->fetchAllWhere('currencies',['status' => 1]);
+        }
+        return $data; 
      }
-} 
-	
+}
+
 
 if(!function_exists('getCoinMarketCapData'))
 {
-     function getCoinMarketCapData() 
-     {  
+     function getCoinMarketCapData()
+     {
         $json  = file_get_contents("https://coinmarketrise.com/index.php/Crawl/getCoinMarketCapDataJson");
         $array = json_decode($json,true);
         foreach($array as $r)
@@ -43,11 +49,8 @@ if(!function_exists('getCoinMarketCapData'))
              	   'updated'         => date('d-m-Y h:i:s'),
              	   'status'          => 1
              	);
-           }   
+           }
         }
         return $data;
      }
 }
-
-
-

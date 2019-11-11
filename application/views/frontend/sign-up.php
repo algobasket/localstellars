@@ -24,13 +24,16 @@
 							<a href="<?php echo base_url();?>" class="page-ath-logo">
 									<img src="<?php echo base_url();?>/public/images/localstellars-logo2.png" srcset="<?php echo base_url();?>public/landing-2/images/logo.png 2x" alt="logo">
 							</a>
-            </div>
+            </div> 
             <div class="page-ath-form">
                 <h2 class="page-ath-heading"><?php echo $this->lang->line('auth_page_ath_heading2');?></h2>
                 <p><?php echo $this->session->flashdata('notify');?></p>
                 <form action="<?php echo base_url();?>auth/signup" method="POST">
                     <div class="input-item">
-                        <input type="text" placeholder="Your Name" class="input-bordered" name="fname" required>
+                        <input type="text" placeholder="Your Real Name" class="input-bordered" name="fname" required>
+                    </div>
+                    <div class="input-item">
+                        <input type="text" placeholder="Username" class="input-bordered" name="username" required>
                     </div>
                     <div class="input-item">
                         <input type="text" placeholder="Your Email" class="input-bordered" name="email" required>
@@ -43,7 +46,7 @@
                     </div>
                     <div class="input-item text-left">
                         <input class="input-checkbox input-checkbox-md termCondition" id="term-condition" type="checkbox" />
-                        <label for="term-condition">I agree to Ixinium’s <a href="regular-page.html">Privacy Policy</a> &amp; <a href="regular-page.html"> Terms.</a></label>
+                        <label for="term-condition">I agree to Localstellars’s <a href="regular-page.html">Privacy Policy</a> &amp; <a href="regular-page.html"> Terms.</a></label>
                     </div>
                     <input type="submit" class="btn btn-primary btn-block signupBtn" name="signup" value="<?php echo $this->lang->line('auth_create_account');?>"/>
                 </form>

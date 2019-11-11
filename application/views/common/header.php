@@ -12,12 +12,11 @@
 	<!-- Vendor Bundle CSS -->
 	<link rel="stylesheet" href="<?php echo $baseurl;?>/public/assets/css/vendor.bundle.css?ver=104">
 	<!-- Custom styles for this template -->
-	<link rel="stylesheet" href="<?php echo $baseurl;?>/public/assets/css/style.css">
-	
+	<link rel="stylesheet" href="<?php echo $baseurl;?>/public/assets/css/style-charcoal.css">
 </head>
 
 <body class="page-user">
-   
+
     <div class="topbar-wrap">
         <div class="topbar is-sticky">
             <div class="container">
@@ -35,11 +34,13 @@
                         </li><!-- .topbar-nav-item -->
                     </ul><!-- .topbar-nav -->
                     <a class="topbar-logo" href="<?php echo base_url();?>">
-                       <img src="<?php echo $baseurl;?>/public/landing/images/logo.png" srcset="<?php echo $baseurl;?>/public/landing/images/logo.png 2x" alt="logo">
+                       <img src="<?php echo $baseurl;?>public/images/localstellars-logo2.png" srcset="<?php echo $baseurl;?>public/images/localstellars-logo2.png 2x" alt="logo">
                     </a>
                     <ul class="topbar-nav">
                         <li class="topbar-nav-item relative">
-                            <span class="user-welcome d-none d-lg-inline-block"><?php lang('common_welcome');?>! <?php echo cUser('name');?></span>
+                            <span class="user-welcome d-none d-lg-inline-block">
+                                <?php lang('common_welcome');?>! <?php echo cUser('name');?>
+                            </span>
                             <a class="toggle-tigger user-thumb" href="#"><em class="ti ti-user"></em></a>
                             <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
                                 <div class="user-status">
@@ -64,16 +65,36 @@
             <div class="container">
                 <div class="navbar-innr">
                     <ul class="navbar-menu">
-                        <li><a href="<?php echo $baseurl;?>welcome"><em class="ikon ikon-dashboard"></em> <?php lang('common_dashboard');?></a></li>
-                        <li><a href="<?php echo $baseurl;?>buy-token/?cs=ETH&amtToken=1&xxaToken=<?php echo round(currencyPrice('ETH')/currencyPrice('XXA'),2);?>"><em class="ikon ikon-coins"></em><?php lang('common_buyTokens');?></a></li>
-                        <li><a href="<?php echo $baseurl;?>ico-distribution"><em class="ikon ikon-distribution"></em><?php lang('common_icoDistribution');?></a></li>
-                        <li><a href="<?php echo $baseurl;?>transactions"><em class="ikon ikon-transactions"></em><?php lang('common_transactions');?></a></li>
-                        <li><a href="<?php echo $baseurl;?>profile"><em class="ikon ikon-user"></em><?php lang('common_profile');?></a></li>
-                        
+                        <li>
+                            <a href="<?php echo $baseurl;?>welcome">
+                                <em class="ikon ikon-dashboard"></em> <?php lang('common_dashboard');?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $baseurl;?>buy-token/?cs=ETH&amtToken=1&xxaToken=<?php echo round(currencyPrice('ETH')/currencyPrice('XXA'),2);?>"><em class="ikon ikon-coins"></em>
+                                <?php lang('common_buyTokens');?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $baseurl;?>ico-distribution"><em class="ikon ikon-distribution"></em>   <?php lang('common_openTradeAds');?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $baseurl;?>transactions"><em class="ikon ikon-transactions"></em>
+                                <?php lang('common_trades');?></a>
+                        </li>
+                        <li>
+                           <select class="form-control" style="margin-top:9px">
+                             <option selected>Using XLM</option>
+                             <option>XLM</option>
+                             <option>XLMG</option>
+													 </select>
+                        </li>
+
                     </ul>
                     <ul class="navbar-btns">
                         <li>
-                            <?php if(cUserDetail()['kyc_status'] == 4){ ?>  
+                            <?php if(cUserDetail()['kyc_status'] == 4){ ?>
                               <a href="<?php echo $baseurl;?>kyc/thankyou" class="btn btn-sm btn-outline btn-light">
                                 <em class="text-primary ti ti-files"></em>
                                 <span>KYC Application</span>
@@ -89,7 +110,7 @@
                                 <span>KYC Application</span>
                             </a>
                             <?php } ?>
-                            
+
                         </li>
                         <li class="d-none"><span class="badge badge-outline badge-success badge-lg"><em class="text-success ti ti-files mgr-1x"></em><span class="text-success">KYC Approved</span></span></li>
                     </ul>

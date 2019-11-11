@@ -35,7 +35,7 @@
     <link href="https://getbootstrap.com/docs/4.3/examples/jumbotron/jumbotron.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#0e1e3d"> 
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">
     <img src="<?php echo base_url();?>public/images/localstellars-logo2.png" width="130" class="d-inline-block align-top"/>
   </a>
@@ -72,11 +72,11 @@
           <a class="dropdown-item" href="#">UK English</a>
           <a class="dropdown-item" href="#">Spanish</a>
           <a class="dropdown-item" href="#">French</a>
-          <a class="dropdown-item" href="#">Dutch</a>
+          <a class="dropdown-item" href="#">Dutch</a> 
           <a class="dropdown-item" href="#">Russian</a>
           <a class="dropdown-item" href="#">Japanese</a>
           <a class="dropdown-item" href="#">Chinese</a>
-          <a class="dropdown-item" href="#">Korean</a>
+          <a class="dropdown-item" href="#">Korean</a> 
         </div>
       </li>
     </ul>
@@ -103,39 +103,101 @@
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-center">
-          <div class="btn-group btn-group-lg">
-           <a href="#" class="btn btn-outline-secondary btn-light">Quick Buy</a>
-           <a href="#" class="btn btn-outline-secondary btn-light">Quick Sell</a>
+      <div class="col-md-6"> 
+          <div class="card">
+            <div class="card-header">
+              <h2><?php echo $this->uri->segment(3);?></h2>
+            </div>
+            <div class="card-body">
+              <footer class="blockquote-footer">
+                  Exchange RIA/MG to btc. Search partners for long term.
+                  only for cooperation:
+                  WhatsApp +380662360261
+                  Telegram: @Gronbtc
+                  По вопрусам сотрудничества пишите в телеграм.
+              </footer>
+               <h3>Information on <?php echo $this->uri->segment(3);?></h3> 
+              <blockquote class="blockquote mb-0">
+                <table class="table table-sm" style="font-size:small"> 
+                  <tr>
+                    <th>Trade Volume</th>
+                    <td></td>
+                  </tr> 
+                  <tr>
+                    <th>Number Of Confirmed Trades</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Feedback Score</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>First Purchase</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Account Created</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Last Seen</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Language</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Phone Number</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>ID, Passport or Driver’s</th> 
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>License</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Trust</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Blocks</th>
+                    <td></td>
+                  </tr>
+                </table>
+              </blockquote>
+             
+            </div>  
           </div>
-        </h2>
-        <p>Choose from more than 30 payment methods. Most trades complete in a few minutes, however this largely depends on the chosen payment method. </p>
-        <div class="input-group">
-         <input type="text" id="" class="form-control" placeholder="Amount"/>
-         <select class="form-control">
-          <option>Currency</option>
-         </select>
-
-         <select class="form-control">
-           <?php foreach(countries() as $country) : ?>
-            <option value="<?php echo $country['sortname'];?>" <?php echo ($country['sortname'] == $deviceInfo['ipCountry']) ? "selected":"";?>>
-              <?php echo $country['name'];?>
-            </option>
-           <?php endforeach ?>
-         </select>
-         <select class="form-control">
-          <option>All Online Offers</option>
-         </select>
-         <div class="input-group-append">
-           <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-         </div>
-        </div>
+      </div>
+      <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Do Your Trust <?php echo $this->uri->segment(3);?> ? </h5>
+                <p class="card-text">You do not currently trust <?php echo $this->uri->segment(3);?>.</p>
+                <a href="#" class="btn btn-primary">Press here if you trust</a>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Seller escrow release times</h5>
+                <p class="card-text">Median: 85 min</p>
+                <p class="card-text">Average: 142 min</p>
+              </div>
+            </div>
       </div>
     </div>
     <br>
     <div class="row">
-      <h4 class="display-6">Buy stellars online in <?php echo $deviceInfo['countryName'];?></h4>
+      <h4 class="display-6">Buy stellars online from <?php echo $this->uri->segment(3);?></h4>
       <table class="table">
          <thead>
            <tr>
@@ -148,8 +210,8 @@
          </thead>
          <tbody>
            <tr>
-             <th scope="row">1</th>
-             <td>Mark</td>
+             <th scope="row"><?php echo $this->uri->segment(3);?></th>
+             <td>Paypal</td>
              <td>Otto</td>
              <td>@mdo</td>
              <td><?php echo anchor('ad/ER34NGF2C/','Buy','class="btn btn-outline-dark"');?></td>
@@ -160,7 +222,7 @@
 
     <br>
     <div class="row">
-      <h4 class="display-6">Sell stellars online in <?php echo $deviceInfo['countryName'];?></h4>
+      <h4 class="display-6">Sell stellars online to <?php echo $this->uri->segment(3);?></h4> 
       <table class="table">
          <thead>
            <tr>
@@ -173,8 +235,8 @@
          </thead>
          <tbody>
            <tr>
-             <th scope="row">1</th>
-             <td>Mark</td>
+             <th scope="row"><?php echo $this->uri->segment(3);?></th>
+             <td>Bank Transfer</td>
              <td>Otto</td>
              <td>@mdo</td>
              <td><?php echo anchor('ad/ER34NGF2C/','Sell','class="btn btn-outline-dark"');?></td>
@@ -182,6 +244,43 @@
          </tbody>
         </table>
     </div>
+     
+     <br>
+     <div class="row">
+      <h4 class="display-6">Feedback -  <small>Positive <span class="badge badge-success">45</span> | Neutral <span class="badge badge-warning">34</span> | Negative <span class="badge badge-danger">0</span></small></h4>
+      <div class="col-md-12">
+        <ul class="list-unstyled">
+          <li class="media">
+            <div class="media-body">
+             Feedback left by users with noticeable trade volume.
+            </div>
+          </li>
+          <br>
+          <li class="media">
+            <img src="<?php echo base_url();?>public/landing-2/images/team-7.jpg" class="mr-3" alt="..." width="60">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Mark Zuck</h5>
+              Amazing trader and response within a minute and very good in communication. Thanks!
+            </div>
+          </li>
+          <li class="media my-4">
+            <img src="<?php echo base_url();?>public/landing-2/images/team-4.jpg" class="mr-3" alt="..." width="60">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Tom Cruise</h5>
+              Very good and I will buy more stellars from him. 
+            </div>
+          </li>
+          <li class="media">
+            <img src="<?php echo base_url();?>public/landing-2/images/team-3.jpg" class="mr-3" alt="..." width="60">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Robert Junior</h5>
+               Perfect Trader and receive my stellar at low market price .
+            </div>
+          </li>
+        </ul>
+      </div>
+     </div>
+
 
     <hr>
   </div> <!-- /container -->

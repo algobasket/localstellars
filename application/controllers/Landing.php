@@ -8,6 +8,7 @@ Class Landing extends ParentController{
 		function __construct()
 		{
 			parent::__construct();
+			$this->lang->load('auth_lang','english');
 		}
 
 
@@ -27,19 +28,57 @@ Class Landing extends ParentController{
 	        }
 		}
 
+
+    /**
+     * [buy description]
+     * @return [type] [description]
+     */
 	  function buy()
 	  {
 
 	  }
 
+
+    /**
+     * [sell description]
+     * @return [type] [description]
+     */
 	  function sell()
 	  {
-
+      $this->load->view('test');
 	  }
 
-		function advertise()  
+
+    /**
+     * [advertise description]
+     * @return [type] [description]
+     */
+		function advertise()
 		{
+			if($_POST)
+			{
+				$json = json_encode($_POST,true);
+				$data = [
+					'user_id' => $this->getSess('userId'),
+					'json'    => $json,
+					'created' => date('d-m-Y h:i:s'),
+					'updated' => date('d-m-Y h:i:s'),
+					'status'  => 1
+				];
+				$this->Crud->create('user_advertise',$data);
+				$this->setFlash('<div class="alert alert-success">'.$this->lang->line('advertise_success').'</div>');
+				redirect('/advertise');
+			}
       $this->load->view('frontend/advertise');
+		}
+
+
+		function setCoin()
+		{
+			$coin = $this->uri->segment(3);
+			if(isCoinExist($coin) == true){ 
+
+			}
 		}
 
 
@@ -118,7 +157,7 @@ Class Landing extends ParentController{
                 echo "Oops! There was a problem with your submission. Please complete the form and try again.";/*--------- Contact submission erroe Message ---------------*/
                 exit;
             }
-            $recipient = "office@ixinium.io"; /*----- Add your email address here------*/
+            $recipient = "office@localstellars.com"; /*----- Add your email address here------*/
             $subject = "Emails For Newslatters $name";/*------ Add your email subject here------*/
             $email_content = "Name: $name";
             $email_content .= "Email: $email\n\n";
@@ -139,7 +178,10 @@ Class Landing extends ParentController{
        }
     }
 
-
+    /**
+     * [test description]
+     * @return [type] [description]
+     */
     function test()
     {
         $autoloader = __DIR__ . '/relative/path/to/Bitpay/Autoloader.php';

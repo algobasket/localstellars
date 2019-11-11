@@ -14,7 +14,7 @@ Class ParentController extends CI_Controller{
         $this->load->model('Crud');
 		$this->load->model('Site_m');
 
-	}
+	} 
 
     /**
      * [frontend description]
@@ -24,26 +24,26 @@ Class ParentController extends CI_Controller{
      */
 	function frontend($pageName,$data)
 	{
-	  $data['baseurl'] = base_url();
-	  $data['layout']  = $pageName;
-    $data['out'] = $this->Site_m->isSiteUnderMaintainance();
-    if($data['out'])
-    {
-      $this->load->view('frontend/maintainance',$data);
-    }else{
-       if($this->getSess('role') != 'customer')
+  	  $data['baseurl'] = base_url();
+  	  $data['layout']  = $pageName;
+      $data['out'] = $this->Site_m->isSiteUnderMaintainance();
+      if($data['out'])
       {
-        exit("<center><h1>Sorry this page doesn't exist!</h1></center>");
+        $this->load->view('frontend/maintainance',$data);
+      }else{
+         if($this->getSess('role') != 'customer')
+        {
+          exit("<center><h1>Sorry this page doesn't exist!</h1></center>");
+        }
+
+        if(in_array($pageName,$this->pageBlocker()))
+        {
+          exit("<center><h1>Sorry this page is blocked!</h1></center>");
+        }
+        $this->load->view('common/layout',$data);
       }
 
-      if(in_array($pageName,$this->pageBlocker()))
-      {
-        exit("<center><h1>Sorry this page is blocked!</h1></center>");
-      }
-      $this->load->view('common/layout',$data);
-    }
-
-	}
+	}  
 
     /**
      * [backend description]

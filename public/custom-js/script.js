@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
-    $('.updateProfile').click(function(){  
+    let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
+    $('.updateProfile').click(function(){
         var object = {
             fname : $('#full-name').val(),
             email : $('#email-address').val(),
@@ -48,21 +49,21 @@ $(document).ready(function(){
 
 
     $.post(path + '/Api/User/isUserPasswordValid',object,function(data,status){
-    
+
        if(data == 1){
              $('#old-pass').css('border','');
              $('#updatePasswordError').html('');
 
               if((object.new_pass == object.confirm_pass) && (object.new_pass !="") && (object.confirm_pass !="")){
-           
+
                 $.post(path + '/Api/User/changeUserPassword',{ password : object.new_pass,api : true },function(data2,status2){
                     console.log(data2);
                    if(data2 == 1){
                     $('.updatePasswordSuccess').show();
                    }
                 })
-           
-            $('#new-pass').css('border',''); 
+
+            $('#new-pass').css('border','');
             $('#confirm-pass').css('border','');
            }else{
              $('#updatePasswordError').html('<label class="badge badge-danger">New Password and Confirm Password Wrong</label>');
@@ -72,10 +73,10 @@ $(document).ready(function(){
         $('#old-pass').css('border','1px solid red');
         $('#updatePasswordError').html('<span class="badge badge-danger">Wrong Current Password</span>');
        }
-      
+
     })
-     
-   
+
+
     // $.post('./Api/User/updateSettings',object,function(data,status){
     //    if(status == 'success'){
     //      console.log(data);
@@ -102,7 +103,7 @@ $('.cal').click(function(){
              $('.buyToken').attr('data-currencysymbol',coinSymbol);
              $('.buyToken').attr('data-amttoken',tokenBaseAmount);
              $('.buyToken').attr('data-xxatoken',data);
-             
+
              $('#paymentblock').slideDown();
              $('.buyTokenXXA').html(data+ ' XXA');
              $('.payAmount').html(tokenBaseAmount+' '+coinSymbol);
@@ -127,7 +128,7 @@ $('.clickToCalculate').click(function(){
              $('.clickToCalculate').attr('data-currencysymbol',currencySymbol);
              $('.clickToCalculate').attr('data-amttoken',tokenCost);
              $('.clickToCalculate').attr('data-xxatoken',data);
-             
+
              $('#paymentblock').slideDown();
              $('.buyTokenXXA').html(data+ ' XXA');
              $('.payAmount').html(tokenCost+' '+currencySymbol);
@@ -145,12 +146,12 @@ $('.buyTokenAndPay').click(function(){
     if($('#agree-term-3:checked').val() == 'on'){
          if($('#pay-paypal:checked').val() == 'on'){
 
-          var amount   =  $('.clickToCalculate').data('amttoken');  
-          var currency =  $('.clickToCalculate').data('currencysymbol');  
+          var amount   =  $('.clickToCalculate').data('amttoken');
+          var currency =  $('.clickToCalculate').data('currencysymbol');
           var token    =  $('.clickToCalculate').data('xxatoken');
-          var query = '?amount='+amount+'&currency='+currency+'&token='+token; 
+          var query = '?amount='+amount+'&currency='+currency+'&token='+token;
 
-            window.location.href= '/Payment/paypal/'+ query; 
+            window.location.href= '/Payment/paypal/'+ query;
 
         }
         if($('#pay-coingate:checked').val() == 'on'){
@@ -162,7 +163,7 @@ $('.buyTokenAndPay').click(function(){
     }else{
         alert("Check the agreement to proceed further");
     }
-   
+
 });
 
 $('.saveSettings').click(function(){
@@ -196,7 +197,7 @@ $('.saveSettings').click(function(){
 
 $('#addWallet').click(function(){
    var token_addr = $('#token-address').val();
-   var object = { 
+   var object = {
       token_addr : token_addr
     };
     let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
@@ -216,51 +217,51 @@ $('#swalllet').change(function(){
 });
 
 
-$('#term-condition').click(function(e){  
+$('#term-condition').click(function(e){
     if($('#term-condition:checked').val() == 'on' && $('#info-correct:checked').val() == 'on')
     {
-       $('#processToVerify').removeAttr('disabled'); 
+       $('#processToVerify').removeAttr('disabled');
     }else{
-        $('#processToVerify').attr('disabled',"''"); 
+        $('#processToVerify').attr('disabled',"''");
     }
 });
 
-$('#info-correct').click(function(e){  
+$('#info-correct').click(function(e){
     if($('#term-condition:checked').val() == 'on' && $('#info-correct:checked').val() == 'on')
     {
-       $('#processToVerify').removeAttr('disabled'); 
+       $('#processToVerify').removeAttr('disabled');
     }else{
-        $('#processToVerify').attr('disabled',"''"); 
+        $('#processToVerify').attr('disabled',"''");
     }
 });
 
-$('.pay-confirm').click(function(){ 
-          var amount   =  $('.clickToCalculate').attr('data-amttoken');  
-          var currency =  $('.clickToCalculate').attr('data-currencysymbol');  
+$('.pay-confirm').click(function(){
+          var amount   =  $('.clickToCalculate').attr('data-amttoken');
+          var currency =  $('.clickToCalculate').attr('data-currencysymbol');
           var token    =  $('.clickToCalculate').attr('data-xxatoken');
-          //var query = '?amount='+amount+'&currency='+currency+'&token='+token; 
-          //window.location.href= '/Payment/directCrypto/'+ query; 
+          //var query = '?amount='+amount+'&currency='+currency+'&token='+token;
+          //window.location.href= '/Payment/directCrypto/'+ query;
           let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
           var data = {
             'amount' : amount,
-            'currency' : currency, 
+            'currency' : currency,
             'token' : token
           };
           $.ajax({
             type:'POST',
             url:path + '/Api/Payment/directCrypto',
-            data:data, 
+            data:data,
             success:function(res){
               $('#get-pay-address').modal('hide');
               $('#pay-confirm').modal('show');
               $('#makeOrderNumber').html(res);
-              $('.clickToCalculate').attr('data-ordernumber',res);  
+              $('.clickToCalculate').attr('data-ordernumber',res);
                  //  console.log(res);
               // $.post(path+'/Api/Payment/createUniqueOrderId',{},function(data2,status){
-              //      console.log(data2); 
+              //      console.log(data2);
               //   $('.clickToCalculate').attr('data-ordernumber',data2);
               // });
-              
+
             }
           });
 });
@@ -268,32 +269,36 @@ $('.pay-confirm').click(function(){
 $('.confirm-wallet-addr').click(function(){
     var address_from = $('#send-from-wallet-address').val();
     var transaction_id = $('#transaction-id-got').val();
-    var order_number = $('.clickToCalculate').attr('data-ordernumber');  
+    var order_number = $('.clickToCalculate').attr('data-ordernumber');
     var data = {
-        'address_from' : address_from, 
-        'transaction_id' : transaction_id, 
-        'order_number' : order_number 
-    };  
-    //console.log(data.address_from +','+data.transaction_id+','+data.order_number); 
+        'address_from' : address_from,
+        'transaction_id' : transaction_id,
+        'order_number' : order_number
+    };
+    //console.log(data.address_from +','+data.transaction_id+','+data.order_number);
     let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
     $.ajax({
-        type:'POST',  
-        url:path + '/Api/Payment/confirmTransactionId',   
-        data:data, 
-        success:function(res){ 
-          $('#pay-confirm').modal('hide'); 
-          $('#pay-review').modal('show');  
+        type:'POST',
+        url:path + '/Api/Payment/confirmTransactionId',
+        data:data,
+        success:function(res){
+          $('#pay-confirm').modal('hide');
+          $('#pay-review').modal('show');
           // $.post(path+'/Api/Payment/createUniqueOrderId',{},function(data2,status){
-          //      console.log(data2); 
+          //      console.log(data2);
           //   $('.clickToCalculate').attr('data-ordernumber',data2);
           // });
-          
+
         }
     });
 });
 
+$('#selectedCoin').change(function(){
+  var coin = $(this).val();
+  window.location.href= path + "Landing/setCoin/" + coin; 
+});
 
-});    
+});
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -340,14 +345,14 @@ function tokensSaleGraph(x)
         period : x
     };
     $.post(path + '/Api/token/tokensSaleGraph',object,function(data,status){
-    var data = JSON.parse(data);       
+    var data = JSON.parse(data);
     var labels = data.labels;
-    var tokendata  = data.tokendata; 
+    var tokendata  = data.tokendata;
 
     var lineChart = 'tknSale';
     if ($('#'+lineChart).length > 0) {
         var lineCh = document.getElementById(lineChart).getContext("2d");
-        
+
         var chart = new Chart(lineCh, {
             // The type of chart we want to create
             type: 'line',
@@ -406,14 +411,14 @@ function tokensSaleGraph(x)
                             beginAtZero:true,
                             fontSize:12,
                             fontColor:'#9eaecf',
-                            
+
                         },
-                        gridLines: { 
+                        gridLines: {
                             color: "#e5ecf8",
                             tickMarkLength:0,
                             zeroLineColor: '#e5ecf8'
                         },
-                        
+
                     }],
                     xAxes: [{
                         ticks: {

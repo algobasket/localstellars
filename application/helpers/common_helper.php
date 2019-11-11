@@ -114,7 +114,7 @@ if(!function_exists('device_info'))
       'os'           => Detect::os(),
       'browser'      => Detect::browser(),
       'countryName'  => $country['name']
-     ]; 
+     ];
      $ci->session->set_userdata('device_info',$return);
      return $return;
    }
@@ -211,5 +211,15 @@ if(!function_exists('countries'))
     $ci = get_instance();
     $ci->load->model('Crud');
     return $ci->Crud->fetchAllWhere('countries',['status'=>1]);
+  }
+}
+
+if(!function_exists('openingHours')){
+  function openingHours(){
+    $range=range(strtotime("00:00"),strtotime("24:00"),15*60);
+    foreach($range as $time){
+      $data[] = date("H:i",$time);
+    }
+    return $data;
   }
 }

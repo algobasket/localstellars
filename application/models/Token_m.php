@@ -1,6 +1,6 @@
 <?php
 Class Token_m extends CI_Model{
-    
+
     /**
      * [__construct description]
      */
@@ -8,7 +8,7 @@ Class Token_m extends CI_Model{
     {
   		parent::__construct();
   	}
-  
+
 
 
     /**
@@ -30,8 +30,8 @@ Class Token_m extends CI_Model{
          foreach($query->result_array() as $row)
           $data[] = $row;
 
-        return $data;   
-      } 
+        return $data;
+      }
     }
 
     /**
@@ -66,11 +66,11 @@ Class Token_m extends CI_Model{
          foreach($query->result_array() as $row)
           $data = $row;
 
-        return $data;   
-      } 
+        return $data;
+      }
     }
 
-    
+
     /**
      * [tokensSaleGraphData description]
      * @param  [type] $period [description]
@@ -78,7 +78,7 @@ Class Token_m extends CI_Model{
      * @return [type]         [description]
      */
     function tokensSaleGraphData($period, $userId)
-    { 
+    {
       $sum = 0;
       $data = [];
       if($period == 7)
@@ -93,13 +93,13 @@ Class Token_m extends CI_Model{
                              ->like('created',$date,'both')
                              ->get();
            //echo $this->db->last_query();
-           //echo '<br>';                  
+           //echo '<br>';
            foreach($query->result_array() as $r)
            {
              $sum += $r['buy_currency_amount'] ? $r['buy_currency_amount'] : 0;
            }
-           $data[] = $sum; 
-           $sum = 0;                 
+           $data[] = $sum;
+           $sum = 0;
         }
         return $data;
 
@@ -116,13 +116,13 @@ Class Token_m extends CI_Model{
                              ->like('created',$date,'both')
                              ->get();
            //echo $this->db->last_query();
-           //echo '<br>';  
+           //echo '<br>';
            foreach($query->result_array() as $r)
            {
              $sum += $r['buy_currency_amount'] ? $r['buy_currency_amount'] : 0;
            }
             $data[] = $sum;
-            $sum = 0;                  
+            $sum = 0;
         }
         return $data;
 
@@ -138,17 +138,22 @@ Class Token_m extends CI_Model{
                              ->like('created',$date,'both')
                              ->get();
             echo $this->db->last_query();
-            echo '<br>';  
+            echo '<br>';
            foreach($query->result_array() as $r)
            {
              $sum += $r['buy_currency_amount'] ? $r['buy_currency_amount'] : 0;
            }
-              $data[] = $sum; 
-              $sum = 0;                 
+              $data[] = $sum;
+              $sum = 0;
         }
         return $data;
       }
 
+    }
+
+    function isCoinExist()
+    {
+      
     }
 
 
@@ -156,5 +161,5 @@ Class Token_m extends CI_Model{
 
 
 
-	
+
 }

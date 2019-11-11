@@ -75,10 +75,10 @@ $query_builder = TRUE;
 if($_SERVER['HTTP_HOST'] == "localhost:8001"){
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'localhost', 
 	'username' => 'root',
 	'password' => 'root',
-	'database' => 'ixinium',
+	'database' => 'localstellar',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
