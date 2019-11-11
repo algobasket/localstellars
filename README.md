@@ -23,16 +23,21 @@ $ localstellar-ci > php -S localhost:8001
 
 Live Production Installation:
 
+  * Change development to production in index.php;
+  * Change database info in database.php inside config folder;
+
 ```bash
-$ composer create-project symfony/symfony-demo my_project
+$ cd www/public_html/html
+$ git clone https://github.com/algobasket/localstellar-ci.git .
+$ sudo chmod 777 -R . OR sudo chmod 777 -R *
 ```
 
 Usage
 -----
 
 There's no need to configure anything to run the application. If you have
-installed the [Symfony client][4] binary, run this command to run the built-in
-web server and access the application in your browser at <http://localhost:8000>:
+installed in your local machine, run this command to run the built-in
+web server and access the application in your browser at <http://localhost:8001>:
 
 ```bash
 $ cd my_project/
@@ -45,8 +50,8 @@ Tests
 Execute this command to run tests:
 
 ```bash
-$ cd my_project/
-$ ./bin/phpunit
+$ cd localstellar-ci/
+$ ./bin/phpunit 
 ```
 
 [1]: https://www.php.net/downloads.php
