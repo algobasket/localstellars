@@ -2,7 +2,7 @@
 <html lang="zxx" class="js">
 <head>
 	<meta charset="utf-8">
-	<meta name="author" content="Softnio">
+	<meta name="author" content="algobasket">  
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Fully featured and complete ICO Dashboard template for ICO backend management.">
 	<!-- Fav Icon  -->
@@ -43,17 +43,48 @@
                             </span>
                             <a class="toggle-tigger user-thumb" href="#"><em class="ti ti-user"></em></a>
                             <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
-                                <div class="user-status">
+                                <div class="user-status" onclick="window.location.href='<?php echo base_url();?>Account/wallet'">
                                     <h6 class="user-status-title"><?php lang('common_tokensBalance');?></h6>
-                                    <div class="user-status-balance"><?php echo cUserDetail()['wallet'] ? cUserDetail()['wallet'] : 0;?> <small>XXA</small></div>
+                                    <div class="user-status-balance"><?php echo cUserDetail()['wallet'] ? cUserDetail()['wallet'] : 0;?> <small><?php echo currentBaseCurrency();?></small></div>
                                 </div>
                                 <ul class="user-links">
+                                   <li>
+                                      <a href="<?php echo $baseurl;?>welcome">
+                                         <i class="ti ti-desktop"></i>
+                                         <?php echo lang('common_dashboard');?>
+                                      </a>
+                                    </li>
+                                     
                                     <li><a href="<?php echo $baseurl;?>profile"><i class="ti ti-id-badge"></i><?php lang('common_myProfile');?></a></li>
                                     <li><a href="<?php echo $baseurl;?>referral"><i class="ti ti-infinite"></i><?php lang('common_referral');?></a></li>
                                     <li><a href="<?php echo $baseurl;?>activity"><i class="ti ti-eye"></i><?php lang('common_activity');?></a></li>
+                                    <li>
+                                      <a href="<?php echo $baseurl;?>account/trusted">
+                                         <i class="ti ti-user"></i>
+                                         <?php echo lang('common_trusted');?>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="<?php echo $baseurl;?>support">
+                                         <i class="ti ti-help"></i>
+                                         <?php echo lang('common_support');?>
+                                      </a>
+                                    </li>  
+                                    <li>
+                                      <a href="<?php echo $baseurl;?>account/settings">
+                                         <i class="ti ti-settings"></i>
+                                         <?php echo lang('common_settings');?>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="<?php echo $baseurl;?>account/security">
+                                         <i class="ti ti-signal"></i>
+                                         <?php echo lang('common_account_security');?>
+                                      </a>
+                                    </li>   
                                 </ul>
                                 <ul class="user-links bg-light">
-                                    <li><a href="<?php echo $baseurl;?>auth/logout"><i class="ti ti-power-off"></i>Logout</a></li>
+                                    <li><a href="<?php echo $baseurl;?>auth/logout"><i class="ti ti-power-off"></i><?php echo lang('common_logout');?></a></li>
                                 </ul>
                             </div>
                         </li><!-- .topbar-nav-item -->
@@ -71,7 +102,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo $baseurl;?>buy-token/?cs=ETH&amtToken=1&xxaToken=<?php echo round(currencyPrice('ETH')/currencyPrice('XXA'),2);?>"><em class="ikon ikon-coins"></em>
+                            <a href="<?php echo $baseurl;?>buy/<?php echo currentBaseCurrency();?>"><em class="ikon ikon-coins"></em>
                                 <?php lang('common_buyTokens');?>
                             </a>
                         </li>
@@ -83,12 +114,15 @@
                             <a href="<?php echo $baseurl;?>transactions"><em class="ikon ikon-transactions"></em>
                                 <?php lang('common_trades');?></a>
                         </li>
-                        <li>
-                           <select class="form-control" style="margin-top:9px">
-                             <option selected>Using XLM</option>
-                             <option>XLM</option>
-                             <option>XLMG</option>
-													 </select>
+                        <li>  
+                           <select class="form-control" style="margin-top:9px" id="selectedCoin">
+                             <option selected>Using <?php echo currentBaseCurrency();?></option>
+                             <?php foreach(baseCurrencies() as $bc) : ?>
+                                <option value="<?php echo $bc['currency_symbol'];?>">
+                                    <?php echo $bc['currency_name'];?> - <?php echo $bc['currency_symbol'];?> 
+                                </option>
+                             <?php endforeach ;?>   
+							</select>
                         </li>
 
                     </ul>

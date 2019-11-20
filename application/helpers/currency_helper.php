@@ -11,7 +11,9 @@ if(!function_exists('currencyPrice'))
      }
 }
 
-
+/**
+ * - @currencies
+ */
 if(!function_exists('currencies'))
 {
      function currencies($type = NULL)
@@ -25,11 +27,13 @@ if(!function_exists('currencies'))
         }else{
           $data = $ci->Crud->fetchAllWhere('currencies',['status' => 1]);
         }
-        return $data; 
+        return $data;
      }
 }
 
-
+/**
+ * - @getCoinMarketCapData
+ */
 if(!function_exists('getCoinMarketCapData'))
 {
      function getCoinMarketCapData()
@@ -38,13 +42,13 @@ if(!function_exists('getCoinMarketCapData'))
         $array = json_decode($json,true);
         foreach($array as $r)
         {
-           if($r['coinSymbol'] == 'BTC' || $r['coinSymbol'] == 'ETH' || $r['coinSymbol'] == 'LTC')
+           if(in_array($r['coinSymbol'],['BTC','ETH','LTC','XLM','XLMG']))
            {
              $data[] = array(
              	   'currency_symbol' => $r['coinSymbol'],
              	   'currency_name'   => $r['coinName'],
              	   'currency_type'   => 'coin',
-             	   'price'           => round(str_replace('$','',$r['price']),2),
+             	   'price'           => str_replace('$','',$r['price']),
              	   'created'         => date('d-m-Y h:i:s'),
              	   'updated'         => date('d-m-Y h:i:s'),
              	   'status'          => 1
@@ -53,4 +57,52 @@ if(!function_exists('getCoinMarketCapData'))
         }
         return $data;
      }
+} 
+
+/**
+ *  Current Base Currency
+ */
+if(!function_exists('currentBaseCurrency')) 
+{
+   function currentBaseCurrency() 
+   {  
+       $ci = get_instance();
+      if($ci->session->userdata('currentBaseCurrency'))
+      { 
+        return $ci->session->userdata('currentBaseCurrency');
+      }else{   
+        return lang('common_basecurrency');   
+      }       
+   }
 }
+
+/**
+ *  Current Base Currency
+ */
+if(!function_exists('currentBaseCurrencyDetail')) 
+{
+   function currentBaseCurrencyDetail()
+   {   
+       $ci = get_instance();
+      if($ci->session->userdata('currentBaseCurrency'))
+      { 
+        $coin =  $ci->session->userdata('currentBaseCurrency');
+      }else{   
+        $coin =  lang('common_basecurrency');   
+      }
+      return $ci->Crud->fetchOneWhere('currencies',['status' => 1,'is_base' => 1,'currency_symbol' => $coin]);                      
+   } 
+}    
+ 
+/**
+ * Base Currencies
+ */
+if(!function_exists('baseCurrencies'))
+{
+   function baseCurrencies() 
+   {
+     $ci = get_instance();
+     $ci->load->model('Crud');
+     return $ci->Crud->fetchAllWhere('currencies',['status' => 1,'is_base' => 1]);
+   }
+} 

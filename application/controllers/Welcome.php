@@ -62,6 +62,11 @@ Class Welcome extends ParentController{
 	  $this->frontend('ico-distribution',$data);
 	}
 
+	function all_notifications()
+	{
+		
+	}
+
 	
 	
 }

@@ -9,6 +9,7 @@ Class Landing extends ParentController{
 		{
 			parent::__construct();
 			$this->lang->load('auth_lang','english');
+            $this->load->model('Token_m');
 		}
 
 
@@ -36,7 +37,7 @@ Class Landing extends ParentController{
 	  function buy()
 	  {
 
-	  }
+	  } 
 
 
     /**
@@ -73,13 +74,25 @@ Class Landing extends ParentController{
 		}
 
 
-		function setCoin()
-		{
-			$coin = $this->uri->segment(3);
-			if(isCoinExist($coin) == true){ 
-
-			}
+   /**
+    * [setCoin description]
+    */
+	function setCoin()
+	{
+		$coin = $this->uri->segment(3);
+		if($this->Token_m->isCoinExist($coin) == true)
+        {  
+          $this->setSess([
+           'currentBaseCurrency' => $coin
+          ]); 
 		}
+      redirect('welcome');
+	}
+
+    function unsetCoin()
+    {
+       $this->remSess(['currentBaseCurrency']); 
+    }  
 
 
     /**
@@ -182,17 +195,26 @@ Class Landing extends ParentController{
      * [test description]
      * @return [type] [description]
      */
+    // function test()
+    // {
+    //     $autoloader = __DIR__ . '/relative/path/to/Bitpay/Autoloader.php';
+    //     if (true === file_exists($autoloader) &&
+    //         true === is_readable($autoloader))
+    //     {
+    //         require_once $autoloader;
+    //         \Bitpay\Autoloader::register();
+    //     } else {
+    //         throw new Exception('BitPay Library could not be loaded');
+    //     }
+    // }
+    
+    /**
+     * [test description]
+     * @return [type] [description]
+     */
     function test()
     {
-        $autoloader = __DIR__ . '/relative/path/to/Bitpay/Autoloader.php';
-        if (true === file_exists($autoloader) &&
-            true === is_readable($autoloader))
-        {
-            require_once $autoloader;
-            \Bitpay\Autoloader::register();
-        } else {
-            throw new Exception('BitPay Library could not be loaded');
-        }
+        print_r(currentBaseCurrencyDetail());
     }
 
 

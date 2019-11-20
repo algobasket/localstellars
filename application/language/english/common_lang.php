@@ -15,18 +15,27 @@ $lang['common_kycApplication']      = "KYC Application";
 $lang['common_totalCalculation']    = "Total Calculation";
 $lang['common_enterAmtToCalToken']  = "Enter amount to calculate token";
 $lang['common_AmountCalBasedCurrentTokensPrice']  = "Amount calculated based current stellars price";
-$lang['common_tokensSaleGraph']     = "Stellar Trade Graph";
-$lang['common_tokenSalesProgress']  = "Token Sales Progress";
+$lang['common_tokensSaleGraph']     = "Trade Graph";
+$lang['common_tokenSalesProgress']  = "Tier Progress";
 $lang['common_tokensBalance']       = "WALLET BALANCE";
 $lang['common_stellars_balance']    = "Stellars Balance";
 $lang['common_tokenName']           = "Token Name";
 $lang['common_tokenSymbol']         = "Token Symbol";
 $lang['common_createAdsNotes']      = "View All Advertisement";
 $lang['common_salesEndIn']          = "SALES END IN";
-$lang['common_raised']              = "RAISED";
+$lang['common_raised']              = "INVESTED"; 
 $lang['common_total']               = "TOTAL";
 $lang['common_tokens']              = "TOKENS";
 $lang['common_account']             = "Account";
+$lang['common_recent_notifications'] = "Recent Notifications";
+$lang['common_all_notifications']   = "See All Notifications";
+
+$lang['common_trusted']             = "Trusted"; 
+$lang['common_support']             = "Support"; 
+$lang['common_settings']            = "Settings"; 
+$lang['common_account_security']    = "Account Security"; 
+$lang['common_logout']              = "Logout"; 
+
 
 $lang['common_sun'] = "Sun";
 $lang['common_mon'] = "Mon";

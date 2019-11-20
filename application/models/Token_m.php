@@ -149,12 +149,20 @@ Class Token_m extends CI_Model{
         return $data;
       }
 
-    }
-
-    function isCoinExist()
+    } 
+    
+    
+    /**
+     * [isCoinExist description] 
+     * @param  [type]  $coin [description]
+     * @return boolean       [description]
+     */ 
+    function isCoinExist($coin)
     {
-      
-    }
+      $q = $this->db->where(['currency_symbol'=>$coin,'is_base' => 1])->get('currencies'); 
+      if($q->num_rows() == 1)
+      return true; 
+    }   
 
 
 

@@ -294,8 +294,10 @@ $('.confirm-wallet-addr').click(function(){
 });
 
 $('#selectedCoin').change(function(){
+  let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
   var coin = $(this).val();
-  window.location.href= path + "Landing/setCoin/" + coin; 
+  console.log(coin);
+  window.location.href= path + "/Landing/setCoin/" + coin; 
 });
 
 });
