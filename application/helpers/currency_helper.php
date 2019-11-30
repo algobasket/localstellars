@@ -93,6 +93,23 @@ if(!function_exists('currentBaseCurrencyDetail'))
       return $ci->Crud->fetchOneWhere('currencies',['status' => 1,'is_base' => 1,'currency_symbol' => $coin]);                      
    } 
 }    
+
+/**
+ *  Current Fiat Base Currency 
+ */
+if(!function_exists('currentFiatBaseCurrency'))  
+{
+  function currentFiatBaseCurrency()
+  {
+    $ci = get_instance();
+      if($ci->session->userdata('currentBaseFiatCurrency'))
+      { 
+        return $ci->session->userdata('currentBaseFiatCurrency');
+      }else{   
+        return lang('common_fiatbasecurrency');    
+      }       
+  }
+}
  
 /**
  * Base Currencies
@@ -106,3 +123,5 @@ if(!function_exists('baseCurrencies'))
      return $ci->Crud->fetchAllWhere('currencies',['status' => 1,'is_base' => 1]);
    }
 } 
+
+

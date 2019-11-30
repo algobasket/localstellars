@@ -57,6 +57,7 @@ Class User extends ParentController{
 	}
 
 
+
     /**
      * [isUserPasswordValid description]
      * @return boolean [description]
@@ -71,6 +72,7 @@ Class User extends ParentController{
       }
 	}
  
+
 
  /**
   * [changeUserPassword description]
@@ -87,6 +89,9 @@ Class User extends ParentController{
   }   
   
 
+  /**
+   * [addUserWallet description]
+   */
   function addUserWallet() 
   {
     $data = [
@@ -97,6 +102,46 @@ Class User extends ParentController{
   }
 
 
+  /**
+   * [vacation description]
+   * @return [type] [description]
+   */
+  function on_vacation()  
+  {
+    $sv = $this->input->post('sv'); 
+    $bv = $this->input->post('bv');  
+    $json = json_encode(['sv'=>$sv,'bv'=>$bv]); 
+    $this->Crud->update('user_detail',['user_id' => $this->getSess('userId')],['on_vacation' => $json]);
+  }  
+
+
+  function sendOTP()
+  {
+     $to = cUserDetail()['mobile_number'];
+     $otp = 'LS-'.time(); 
+     $msg = "Your OTP - " . $otp;
+     $this->Crud->update('user',['id' => $this->getSess('userId')],['otp' => $otp]);
+     if(sendTwilio($to,$from,$msg)){
+       echo 1;   
+     }else{
+       echo 0;
+     }         
+  } 
+
+  function verifyOTP()
+  {
+     $to        = cUserDetail()['mobile_number'];
+     $query     = $this->Crud->fetchOneWhere('user',['id' => $this->getSess('userId')]);
+     $input_otp = $this->input->post('input_otp');
+     $stored_otp   = $query['otp']; 
+     if($input_otp == $stored_otp){
+       echo 1;   
+     }else{ 
+       echo 0;
+     }         
+  }
+
+  
   function test()
   {
     

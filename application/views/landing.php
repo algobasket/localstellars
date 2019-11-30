@@ -46,10 +46,10 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url();?>buy">Buy Stellars <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url();?>buy/<?php echo currentBaseCurrency();?>">Buy Stellars <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url();?>sell">Sell Stellars</a>
+        <a class="nav-link" href="<?php echo base_url();?>sell/<?php echo currentBaseCurrency();?>">Sell Stellars</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url();?>advertise">Post a trade</a>
@@ -79,11 +79,25 @@
           <a class="dropdown-item" href="#">Korean</a>
         </div>
       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Using <?php echo currentBaseCurrency();?></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <?php foreach(baseCurrencies() as $bc) : ?>
+           <a class="dropdown-item" href="<?php echo base_url().'landing/setCoin/'.$bc['currency_symbol'];?>"><?php echo $bc['currency_name'];?> - <?php echo $bc['currency_symbol'];?></a>
+          <?php endforeach ;?>
+        </div>
+      </li>
     </ul>
+    
     <form class="form-inline my-2 my-lg-0">
       <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
+      <?php if(!cUser('userId')){ ?>
       <a href="<?php echo base_url();?>auth/signup" class="btn btn-outline-success btn-sm my-2 my-sm-0">Signup Free</a>
       <a href="<?php echo base_url();?>auth/login" class="btn btn-outline-success btn-sm my-2 my-sm-0" style="margin:5px">Login</a>
+      <?php }else{ ?>
+      <a href="<?php echo base_url();?>welcome" class="btn btn-outline-success btn-sm my-2 my-sm-0">Dashboard</a>
+      <a href="<?php echo base_url();?>profile" class="btn btn-outline-success btn-sm my-2 my-sm-0" style="margin:5px">Account</a>
+      <?php } ?>
     </form>
   </div>
 </nav>
@@ -95,7 +109,7 @@
     <div class="container">
       <h2 class="display-3">Buy and sell stellars near you</h2>
       <h4>Instant. Secure. Private.</h4>
-      <p> Trade stellars in <strong>7812 cities</strong> and <strong>248 countries</strong> including India.</p>
+      <p> Trade stellars in <strong>7812 cities</strong> and <strong>248 countries</strong> including <?php echo $deviceInfo['countryName'];?>.</p>
       <p><a class="btn btn-success btn-lg" href="<?php echo base_url();?>auth/signup" role="button">Signup Free &raquo;</a></p>
     </div>
   </div>
@@ -113,8 +127,11 @@
         <p>Choose from more than 30 payment methods. Most trades complete in a few minutes, however this largely depends on the chosen payment method. </p>
         <div class="input-group">
          <input type="text" id="" class="form-control" placeholder="Amount"/>
+         
          <select class="form-control">
-          <option>Currency</option>
+          <?php foreach(currencies('fiat') as $currency) { ?>
+            <option><?php echo $currency['currency_name'];?></option>
+          <?php } ?>
          </select>
 
          <select class="form-control">
@@ -125,7 +142,9 @@
            <?php endforeach ?>
          </select>
          <select class="form-control">
-          <option>All Online Offers</option>
+           <?php foreach($paymentMethods as $pm){ ?>
+           <option><?php echo $pm['p_m_name'];?></option>
+          <?php } ?> 
          </select>
          <div class="input-group-append">
            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
@@ -135,20 +154,20 @@
     </div>
     <br>
     <div class="row">
-      <h4 class="display-6">Buy stellars online in <?php echo $deviceInfo['countryName'];?></h4>
+      <h4 class="display-6">Buy <?php echo currentBaseCurrency();?> stellars online in <?php echo $deviceInfo['countryName'];?></h4>
       <table class="table">
          <thead>
            <tr>
              <th scope="col">Seller</th>
              <th scope="col">Payment method</th>
-             <th scope="col">Price/XMR</th>
+             <th scope="col">Price/<?php echo currentBaseCurrency();?></th>
              <th scope="col">Limits</th>
              <th scope="col"></th>
            </tr>
          </thead>
          <tbody>
            <tr>
-             <th scope="row">1</th>
+             <th scope="row">1</th>   
              <td>Mark</td>
              <td>Otto</td>
              <td>@mdo</td>
@@ -160,13 +179,13 @@
 
     <br>
     <div class="row">
-      <h4 class="display-6">Sell stellars online in <?php echo $deviceInfo['countryName'];?></h4>
+      <h4 class="display-6">Sell <?php echo currentBaseCurrency();?> stellars online in <?php echo $deviceInfo['countryName'];?></h4>
       <table class="table">
          <thead>
            <tr>
              <th scope="col">Buyer</th>
              <th scope="col">Payment method</th>
-             <th scope="col">Price/XMR</th>
+             <th scope="col">Price/<?php echo currentBaseCurrency();?></th>
              <th scope="col">Limits</th>
              <th scope="col"></th>
            </tr>

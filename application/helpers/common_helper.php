@@ -145,7 +145,15 @@ if(!function_exists('payment_wallet'))
   }
 }
 
-
+if(!function_exists('office_emails')) 
+{
+  function office_emails()   
+  {
+    $ci = get_instance();
+    $ci->load->model('Crud');
+    return json_decode($ci->Crud->fetchOneWhere('settings',['setting_name' => 'emails'])['json'],true);
+  }
+}
 
 
 if(!function_exists('proper_time'))
@@ -200,7 +208,33 @@ if(!function_exists('sendgrid'))
         echo 'Caught exception: '. $e->getMessage() ."\n";
     }
   }
+} 
+
+
+
+if(!function_exists('sendTwilio')){
+   function sendTwilio($to,$from,$msg){
+      return true;
+   }
 }
+
+/**
+ * @sendPlivio
+ */
+if(!function_exists('sendPlivio')){
+   require APPPATH . 'libraries/vendor/autoload.php'
+   use Plivo\RestClient;
+   $client = new RestClient();
+   function sendPlivio($to,$from,$msg){
+      global $client;
+      $message_created = $client->messages->create(
+       $from,
+       [$to],
+       $msg
+     );
+     print_r($message_created);   
+   }
+} 
 
 
 

@@ -10,6 +10,7 @@ Class Landing extends ParentController{
 			parent::__construct();
 			$this->lang->load('auth_lang','english');
             $this->load->model('Token_m');
+            $this->load->model('Payment_m');
 		}
 
 
@@ -20,12 +21,12 @@ Class Landing extends ParentController{
 		function index()
 		{
 	        $data['out'] = $this->Site_m->isSiteUnderMaintainance();
-					$data2['deviceInfo'] = $this->getDeviceInfo();
-	        if($data['out'])
+			$data['deviceInfo'] = $this->getDeviceInfo();
+	        if($data['out']) 
 	        {
 	            $this->load->view('frontend/maintainance',$data);
 	        }else{
-	            $this->load->view('landing',$data2);
+	            $this->load->view('landing',$data);
 	        }
 		}
 
@@ -34,10 +35,12 @@ Class Landing extends ParentController{
      * [buy description]
      * @return [type] [description]
      */
-	  function buy()
+	  function buy()   
 	  {
-
-	  } 
+        $data['deviceInfo'] = $this->getDeviceInfo();
+        $data['paymentMethods'] = $this->Payment_m->getAllPaymentMethods();
+         $this->load->view('frontend/buy',$data);
+	  }  
 
 
     /**
@@ -46,7 +49,9 @@ Class Landing extends ParentController{
      */
 	  function sell()
 	  {
-      $this->load->view('test');
+        $data['deviceInfo'] = $this->getDeviceInfo();
+        $data['paymentMethods'] = $this->Payment_m->getAllPaymentMethods();
+         $this->load->view('frontend/sell',$data);
 	  }
 
 
@@ -55,7 +60,7 @@ Class Landing extends ParentController{
      * @return [type] [description]
      */
 		function advertise()
-		{
+		{ 
 			if($_POST)
 			{
 				$json = json_encode($_POST,true);
@@ -86,7 +91,10 @@ Class Landing extends ParentController{
            'currentBaseCurrency' => $coin
           ]); 
 		}
-      redirect('welcome');
+       if($this->getSess('userId'))
+         redirect('welcome'); 
+        else
+         redirect('/'); 
 	}
 
     function unsetCoin()
@@ -99,12 +107,30 @@ Class Landing extends ParentController{
      * [whitepaper description]
      * @return [type] [description]
      */
-		function whitepaper()
-		{
-	      $this->load->helper('download');
-	      force_download('./public/documents/whitepaper.pdf', NULL);
-		}
+	function whitepaper()
+	{
+      $this->load->helper('download');
+      force_download('./public/documents/whitepaper.pdf', NULL);
+	}
 
+     /**
+      * [setFiat description]
+      */
+     function setFiat() 
+     {
+        $fiat = $this->uri->segment(3);
+        $this->Token_m->isFiatExist($fiat);
+        if($this->Token_m->isFiatExist($fiat) == true)
+        {  
+          $this->setSess([
+           'currentBaseFiatCurrency' => $fiat
+          ]);  
+        }
+        if($this->getSess('userId'))
+         redirect('welcome'); 
+        else
+         redirect('/');   
+     }
 
 
     /**
@@ -127,7 +153,7 @@ Class Landing extends ParentController{
                 echo "Oops! There was a problem with your submission. Please complete the form and try again."; /*--------- Contact submission erroe Message ---------------*/
                 exit;
             }
-            $recipient = "office@ixinium.io"; /*----- Add your email address here------*/
+            $recipient = office_emails()['support']; /*----- Add your email address here------*/
             $subject = "Emails for newslatter";/*------ Add your email subject here------*/
             $email_content = "Email: $email\n\n";
             $email_content .= "Message:\n$message\n";
@@ -170,7 +196,7 @@ Class Landing extends ParentController{
                 echo "Oops! There was a problem with your submission. Please complete the form and try again.";/*--------- Contact submission erroe Message ---------------*/
                 exit;
             }
-            $recipient = "office@localstellars.com"; /*----- Add your email address here------*/
+            $recipient = office_emails()['support']; /*----- Add your email address here------*/
             $subject = "Emails For Newslatters $name";/*------ Add your email subject here------*/
             $email_content = "Name: $name";
             $email_content .= "Email: $email\n\n";
@@ -191,30 +217,9 @@ Class Landing extends ParentController{
        }
     }
 
-    /**
-     * [test description]
-     * @return [type] [description]
-     */
-    // function test()
-    // {
-    //     $autoloader = __DIR__ . '/relative/path/to/Bitpay/Autoloader.php';
-    //     if (true === file_exists($autoloader) &&
-    //         true === is_readable($autoloader))
-    //     {
-    //         require_once $autoloader;
-    //         \Bitpay\Autoloader::register();
-    //     } else {
-    //         throw new Exception('BitPay Library could not be loaded');
-    //     }
-    // }
     
-    /**
-     * [test description]
-     * @return [type] [description]
-     */
-    function test()
-    {
-        print_r(currentBaseCurrencyDetail());
+    function test(){ 
+        echo currentFiatBaseCurrency();   
     }
 
 

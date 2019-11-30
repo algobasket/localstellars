@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 <head>
+    <meta name="robots" content="noindex">
 	<meta charset="utf-8">
 	<meta name="author" content="Softnio">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

@@ -8,6 +8,16 @@
                         <li><a href="regular-page.html"><?php lang('site_privacy_policy');?></a></li>
                         <li><a href="regular-page.html"><?php lang('site_terms_of_con');?></a></li>
                     </ul>
+                    <div class="lang-switch relative">
+                            <a href="#" class="lang-switch-btn toggle-tigger"><?php echo currentFiatBaseCurrency();?><em class="ti ti-angle-up"></em></a>
+                            <div class="toggle-class dropdown-content dropdown-content-up" style="left:4%"> 
+                                <ul class="lang-list">
+                                    <?php foreach(currencies('fiat') as $c): ?>
+                                       <li><a href="<?php echo $baseurl .'/Landing/setFiat/'. $c['currency_name'];?>"><?php echo $c['currency_name'];?></a></li>
+                                    <?php endforeach; ?>    
+                                </ul>
+                            </div>
+                        </div>
                 </div><!-- .col -->
                 <div class="col-md-4 mt-2 mt-sm-0">
                     <div class="d-flex justify-content-between justify-content-md-end align-items-center guttar-25px pdt-0-5x pdb-0-5x">

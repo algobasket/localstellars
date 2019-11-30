@@ -59,8 +59,8 @@ $route['activity'] = 'Welcome/activity';
 $route['referral'] = 'Welcome/referral';
 $route['whitepaper'] = 'Landing/whitepaper';
 $route['advertise'] = 'Landing/advertise';
-$route['buy'] = 'Landing/buy';
-$route['sell'] = 'Landing/sell';
+$route['buy/(:any)'] = 'Landing/buy/$1';
+$route['sell/(:any)'] = 'Landing/sell/$1'; 
 $route['referral/(:any)'] = 'Auth/referral/$1';
 $route['verify-email/(:any)'] = 'Auth/verifyAccountEmail/$1';
 

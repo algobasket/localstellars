@@ -20,7 +20,7 @@
                                         <?php lang('common_tokensBalance');?>
                                     </h6>
                                     <span class="lead">
-                                      <?php echo cUserDetail()['wallet'] ? cUserDetail()['wallet'] : 0;?> USD
+                                      <?php echo cUserDetail()['wallet'] ? cUserDetail()['wallet'] * currencyPrice(currentFiatBaseCurrency()) : 0;?> <?php echo currentFiatBaseCurrency();?>
                                     <span><?php lang('common_twz');?></span></span>
                                 </div>
                             </div>
@@ -50,8 +50,14 @@
                                 <div class="token-info">
                                     <img class="token-info-icon" src="<?php echo $baseurl;?>/public/images/394-3949898_stellar-logo-xlm-logo-png-clipart.png" alt="logo-sm">
                                     <div class="gaps-2x"></div>
-                                    <h1 class="token-info-head text-light">1 XLM = <?php echo currencyPrice('XLM');?> USD</h1>
-                                    <h5 class="token-info-sub">1 XLMG = <?php echo currencyPrice('XLMG');?> USD</h5>
+                                    <h1 class="token-info-head text-light">
+                                        1 XLM = <?php echo currencyPrice('XLM') * currencyPrice(currentFiatBaseCurrency());?> 
+                                        <?php echo currentFiatBaseCurrency();?> 
+                                    </h1>
+                                    <h5 class="token-info-sub">
+                                        1 XLMG = <?php echo currencyPrice('XLMG') * currencyPrice(currentFiatBaseCurrency());?>
+                                        <?php echo currentFiatBaseCurrency();?>       
+                                    </h5>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -76,7 +82,7 @@
                                     <a href="<?php echo base_url();?>transactions" class="link ucap">View ALL <em class="fas fa-angle-right ml-2"></em></a>
                                 </div>
                             </div>
-                            <p>You can create a maximum of 5 advertisements. The limit is based on your 30 day volume, which is 0.01530820 BTC. To learn more about advertisement limits, click here.</p>
+                            <p>You can create a maximum of 5 advertisements. The limit is based on your 30 day volume, which is 0.01530820 <?php echo currentBaseCurrency();?>. To learn more about advertisement limits, click here.</p>
                             <table class="table tnx-table">
                                 <thead>
                                     <tr>
@@ -216,25 +222,29 @@
                     <div class="token-sales card card-full-height">
                         <div class="card-innr">
                             <div class="card-head">
-                                <h4 class="card-title"><?php echo currentBaseCurrency();?> <?php lang('common_tokenSalesProgress');?></h4>
+                                <h4 class="card-title">
+                                    <?php echo currentBaseCurrency();?>  
+                                    <?php echo cUserDetail()['acctlvl'];?>
+                                    <?php lang('common_tokenSalesProgress');?></h4>
                             </div>
                             <ul class="progress-info">
                                 <li><span>HOLDING</span> <?php echo token_info()['volume_token'];?> <?php echo currentBaseCurrency();?></li>
-                                <li class="text-right"><span>LIMIT</span> <?php echo token_info()['total_circulating_supply'];?> <?php echo currentBaseCurrency();?></li>
+                                <li class="text-right"><span>LIMIT</span> <?php echo cUserDetail()['holding_end_limit'];?> <?php echo currentBaseCurrency();?></li>
                             </ul>
                             <div class="progress-bar">
                                 <div class="progress-hcap" data-percent="83" style="width: 83%;">
-                                    <div>Hard cap <span>1,400,000</span></div>
+                                    <div>High <?php echo currentBaseCurrency();?><span><?php echo cUserDetail()['holding_end_limit'] * 75/100;?></span></div>
                                 </div>
                                 <div class="progress-scap" data-percent="24" style="width: 24%;">
-                                    <div>Soft cap <span>40,000</span></div>
+                                    <div>Low <?php echo currentBaseCurrency();?> <span><?php echo cUserDetail()['holding_end_limit'] * 25/100;?></span></div>
                                 </div>
                                 <div class="progress-percent" data-percent="28" style="width: 28%;"></div>
                             </div>
 
                             <span class="card-sub-title mgb-0-5x">
                             Annual Incoming Trade and Transaction Volume:</span>
-                            <h4 class="text-default">6,895.60€ / 20,000€</h4>
+                            <h4 class="text-default">
+                                <?php echo token_info()['volume_token'];?> <?php echo currentBaseCurrency();?> / <?php echo cUserDetail()['holding_end_limit'];?> <?php echo currentBaseCurrency();?></h4>
                         </div>
                     </div>
                 </div>
@@ -267,7 +277,8 @@
                             <b><input type="checkbox" id="buyingVac" /> Buying Vacation</b><br>   
                             <small>Disable all your advertisements for purchase temporarily</small> 
                             <br>
-                            <a href="#" class="bth btn-primary btn-sm">Save</a>
+                            <a href="#" class="bth btn-primary btn-sm btn_vacation">Save</a>
+                            <span id="vacation_s"></span>
                         </div> 
                     </div>
                 </div>

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6ea08d7e0e7b4d15b694b543430245b",
-    "content-hash": "919d0e5d9ae59f6a6d08c7a345e70685",
+    "hash": "2e07ff4b1b783a5249688b41f34bb548",
+    "content-hash": "73ed63aa3d3f328c5fad4c1e58679715",
     "packages": [
         {
             "name": "bitpay/php-client",
@@ -576,6 +576,58 @@
                 "random"
             ],
             "time": "2018-07-02 15:55:56"
+        },
+        {
+            "name": "plivo/plivo-php",
+            "version": "v4.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/plivo/plivo-php.git",
+                "reference": "58973ab52402ec9f37c26cc07337ebd84bedb7b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/plivo/plivo-php/zipball/58973ab52402ec9f37c26cc07337ebd84bedb7b6",
+                "reference": "58973ab52402ec9f37c26cc07337ebd84bedb7b6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0"
+            },
+            "require-dev": {
+                "justinrainbow/json-schema": "^5.2",
+                "phpunit/phpunit": "^8.1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/",
+                    "tests/"
+                ],
+                "exclude-from-classmap": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Plivo SDKs Team",
+                    "email": "sdks@plivo.com",
+                    "homepage": "https://developers.plivo.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP SDK to make voice calls & send SMS using Plivo and to generate Plivo XML",
+            "homepage": "http://github.com/plivo/plivo-php",
+            "keywords": [
+                "api",
+                "plivo",
+                "plivo xml",
+                "sms",
+                "voice calls"
+            ],
+            "time": "2019-10-16 06:35:56"
         },
         {
             "name": "psr/http-message",

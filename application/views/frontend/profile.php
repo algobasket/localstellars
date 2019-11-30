@@ -51,12 +51,13 @@
                                                 <div class="input-item input-with-label">
                                                     <label for="nationality" class="input-item-label">Nationality</label>
                                                     <select class="select-bordered select-block" name="nationality" id="nationality">
-                                                        <option value="us" <?php echo ($info['nationality']=='us') ? "selected" : "";?>>United State</option>
-                                                        <option value="uk" <?php echo ($info['nationality']=='uk') ? "selected" : "";?>>United KingDom</option>
-                                                        <option value="fr" <?php echo ($info['nationality']=='fr') ? "selected" : "";?>>France</option>
-                                                        <option value="ch" <?php echo ($info['nationality']=='ch') ? "selected" : "";?>>China</option>
-                                                        <option value="cr" <?php echo ($info['nationality']=='cr') ? "selected" : "";?>>Czech Republic</option>
-                                                        <option value="cb" <?php echo ($info['nationality']=='cb') ? "selected" : "";?>>Colombia</option>
+                                                       
+                                                        <?php foreach(countries() as $country) : ?>
+                                                            <option value="<?php echo $country['sortname'];?>" <?php echo (strtoupper($info['nationality']) == $country['sortname']) ? "selected" : "";?>>
+                                                                <?php echo $country['name'];?>
+                                                            </option>
+                                                        <?php endforeach ?>     
+                                                        
                                                     </select>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
@@ -158,7 +159,7 @@
                                     <span class="badge badge-disabled ml-2">Disabled</span>
                                 </span>
                                 <div class="gaps-2x d-sm-none"></div>
-                                <button class="order-sm-first btn btn-primary">Enable 2FA</button>
+                                <button class="order-sm-first btn btn-primary" onclick="$('#2fa-mobile-modal').modal('show')">Enable 2FA</button>
                             </div>
                         </div><!-- .card-innr -->
                     </div><!-- .card -->
@@ -172,20 +173,21 @@
                                 <li><a href="#" class="btn btn-auto btn-xs btn-warning">KYC Pending</a></li>
                             </ul>
                             <div class="gaps-2-5x"></div>
-                            <h6 class="card-title card-title-sm">Receiving Wallet</h6>
+                            <h6 class="card-title card-title-sm"><?php echo currentBaseCurrency();?> Receiving Wallet</h6>
                             <div class="d-flex justify-content-between">
                                 <span><span>
                             
                             <?php
                               if(@cUserDetail()['currencies'])
                               { 
-                                 echo substr(json_decode(@cUserDetail()['currencies'],true)['xxa'],0,20) . '.....'; 
+                                 echo substr(json_decode(@cUserDetail()['currencies'],true)['xxa'],0,20).'....'; 
                               }else{
                                  echo "No XXA Wallet Address Found";
                               }     
                             ?> 
-                                </span> <em class="fas fa-info-circle text-exlight" data-toggle="tooltip" data-placement="bottom" title="1 ETH = 100 TWZ"></em></span>
-                                <a href="#" data-toggle="modal" data-target="#edit-wallet" class="link link-ucap">Edit</a>
+                                </span> <em class="fas fa-info-circle text-exlight" data-toggle="tooltip" data-placement="bottom" title="Share this address to receive <?php echo currentBaseCurrency();?>"></em></span>
+                                <a href="#" data-clipboard-text="<?php echo json_decode(@cUserDetail()['currencies'],true)['xxa'];?>" class="link link-ucap copy-clipboard">Copy</a>  
+
                             </div>
                         </div>
                     </div>
@@ -270,6 +272,61 @@
                             <div class="gaps-2x d-sm-none"></div>
                             <span id="#notify"></span>
                         </div>
+                    </form><!-- form -->
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div>
+    <!-- Modal End -->
+
+
+    <div class="modal fade" id="2fa-mobile-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">2FA Mobile Verification</h4> 
+                    <p>In order to make your account more secure<a href="#"><strong></strong></a>, please verify your phone number and you have to put your 10 digit phone number below input box. <strong>You will receive a OTP pin and will expire after 1 day</strong></p>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-item input-with-label">
+                                    <label for="swalllet" class="input-item-label">Your Phone Number</label>
+                                   <!--  <select class="select-bordered select-block" name="swalllet" id="swalllet">
+                                        <option value="eth">Ethereum</option>
+                                        <option value="dac">DashCoin</option>
+                                        <option value="bic">BitCoin</option>
+                                    </select> -->
+
+                            <?php
+                              if(@cUserDetail()['mobile_number'])
+                              { 
+                                 echo '<div class="alert alert-success" style="font-size:14px">'.cUserDetail()['mobile_number'].'</div>';
+                              }else{
+                                 echo "<div class='alert alert-warning alert-block'>Please add your phone number in your profile page then continue!</div>";
+                              }     
+                            ?>
+                                </div><!-- .input-item -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                        <?php
+                         if(cUserDetail()['mobile_number']){ ?> 
+                         <div class="input-item input-with-label otp_input" style="display: none">
+                            <label for="token-address" class="input-item-label">Enter the OTP pin that your receive:</label>
+                            <input class="input-bordered" type="text" id="token-address" name="token-address" placeholder="OTP PIN">
+                            <span class="input-note">Note: Check your recent OTP pin.</span>
+                        </div><!-- .input-item -->
+                        <div class="note note-plane note-danger">
+                            <em class="fas fa-info-circle"></em>
+                            <p>DO NOT GIVE this OTP pin to someone if ask or your account will get compromise</p>
+                        </div>
+                        <div class="gaps-3x"></div>
+                        <div class="d-sm-flex justify-content-between align-items-center">
+                            <button type="button" class="btn btn-primary" id="sendOTP">Send OTP</button>
+                            <div class="gaps-2x d-sm-none"></div>
+                            <span id="#notify"></span>
+                        </div>
+                        <?php } ?>
                     </form><!-- form -->
                 </div>
             </div><!-- .modal-content -->

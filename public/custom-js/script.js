@@ -300,6 +300,45 @@ $('#selectedCoin').change(function(){
   window.location.href= path + "/Landing/setCoin/" + coin; 
 });
 
+$('.btn_vacation').click(function(){
+    var sellingVac = $('#sellingVac:checked').val() ? 1 : 0;
+    var buyingVac  = $('#buyingVac:checked').val() ? 1 : 0;
+   
+    var data = {
+        'sv' : sellingVac, 
+        'bv' : buyingVac
+    };
+    console.log(data); 
+    let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
+    $.ajax({
+        type:'POST',
+        url:path + '/Api/User/on_vacation', 
+        data:data,
+        success:function(res){ 
+          $('#vacation_s').html('<span class="text-success"> Changes Saved</span>');
+        }
+    });
+});
+
+$('#sendOTP').click(function(){ 
+   
+    var data = {
+        'api' : true 
+    };
+    console.log(data); 
+    let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
+    $.ajax({
+        type:'POST',
+        url:path + '/Api/User/sendOTP',   
+        data:data,
+        success:function(res){ 
+          $('#otp_s').html('<span class="text-success"> OTP Sent</span>');
+        }
+    });
+});
+
+
+
 });
 
 function setCookie(cname, cvalue, exdays) {

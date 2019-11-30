@@ -151,7 +151,7 @@ Class Token_m extends CI_Model{
 
     } 
     
-    
+
     /**
      * [isCoinExist description] 
      * @param  [type]  $coin [description]
@@ -162,9 +162,22 @@ Class Token_m extends CI_Model{
       $q = $this->db->where(['currency_symbol'=>$coin,'is_base' => 1])->get('currencies'); 
       if($q->num_rows() == 1)
       return true; 
+    }       
+
+
+    /**
+     * [isFiatExist description] 
+     * @param  [type]  $coin [description]
+     * @return boolean       [description]
+     */ 
+    function isFiatExist($fiat)    
+    {
+      $q = $this->db->where(['currency_symbol'=>$fiat,'currency_type' => 'fiat'])->get('currencies'); 
+      if($q->num_rows() == 1) 
+      return true; 
     }   
 
-
+   
 
 
 

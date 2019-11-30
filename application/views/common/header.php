@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 <head>
+    <meta name="robots" content="noindex">
 	<meta charset="utf-8">
 	<meta name="author" content="algobasket">  
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -104,6 +105,11 @@
                         <li>
                             <a href="<?php echo $baseurl;?>buy/<?php echo currentBaseCurrency();?>"><em class="ikon ikon-coins"></em>
                                 <?php lang('common_buyTokens');?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $baseurl;?>sell/<?php echo currentBaseCurrency();?>"><em class="ikon ikon-coins"></em>
+                                <?php lang('common_sellTokens');?>
                             </a>
                         </li>
                         <li>

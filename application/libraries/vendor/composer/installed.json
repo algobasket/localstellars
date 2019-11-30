@@ -1030,5 +1030,59 @@
             "identicon",
             "jdenticon"
         ]
+    },
+    {
+        "name": "plivo/plivo-php",
+        "version": "v4.3.6",
+        "version_normalized": "4.3.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/plivo/plivo-php.git",
+            "reference": "58973ab52402ec9f37c26cc07337ebd84bedb7b6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/plivo/plivo-php/zipball/58973ab52402ec9f37c26cc07337ebd84bedb7b6",
+            "reference": "58973ab52402ec9f37c26cc07337ebd84bedb7b6",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0"
+        },
+        "require-dev": {
+            "justinrainbow/json-schema": "^5.2",
+            "phpunit/phpunit": "^8.1.5"
+        },
+        "time": "2019-10-16 06:35:56",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/",
+                "tests/"
+            ],
+            "exclude-from-classmap": []
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Plivo SDKs Team",
+                "email": "sdks@plivo.com",
+                "homepage": "https://developers.plivo.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "A PHP SDK to make voice calls & send SMS using Plivo and to generate Plivo XML",
+        "homepage": "http://github.com/plivo/plivo-php",
+        "keywords": [
+            "api",
+            "plivo",
+            "plivo xml",
+            "sms",
+            "voice calls"
+        ]
     }
 ]

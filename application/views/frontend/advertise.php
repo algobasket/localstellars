@@ -328,7 +328,7 @@
 
         <div class="mb-3">
           <label for="priceEquation">Price Equation <span class="text-muted">(Want to know?)</span></label>
-          <input type="text" class="form-control" id="priceEquation" name="priceEquation" placeholder="XLM_IN_USD" value="XLM_IN_USD" >
+          <input type="text" class="form-control" id="priceEquation" name="priceEquation" placeholder="<?php echo currentBaseCurrency();?>_IN_<?php echo currentFiatBaseCurrency();?>" value="<?php echo currentBaseCurrency();?>_IN_<?php echo currentFiatBaseCurrency();?>" >
           <small class="text-muted">Trade price with current market value </small>
         </div>
 
@@ -459,7 +459,7 @@ google.maps.event.addDomListener(window, 'load', init);
       $('document').ready(function(){
         $('#currency').change(function(){
            var val = $(this).val();
-           var equation = '<?php echo lang('common_basecurrency');?>' + '_IN_'+val;
+           var equation = '<?php echo currentBaseCurrency();?>' + '_IN_'+val;
            $('#priceEquation').val(equation);
            $('.min_tx_lm').html(val);
            $('.max_tx_lm').html(val); 

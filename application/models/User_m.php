@@ -10,10 +10,11 @@ Class User_m extends CI_Model{
 	function getUserData($userId)
   {
 
-      $query = $this->db->select('user.*,user_detail.*,status.*')
+      $query = $this->db->select('user.*,user_detail.*,status.*,account_level.name as acctlvl,account_level.*')
                         ->from('user')
                         ->join('user_detail','user_detail.user_id=user.id','left')
                         ->join('status','status.statusCode=user.status','left')
+                        ->join('account_level','account_level.id=user_detail.account_level','left') 
                         ->where('user.id',$userId)
                         ->get();
       //echo $this->db->last_query();
@@ -262,6 +263,16 @@ Class User_m extends CI_Model{
 
   }
 
+  function getVacation($userId)
+  {
+    $query = $this->db->select('on_vacation')->from('user_detail')->where(['user_id'=>$userId])->get();
+    $row = $query->result_array()[0];
+    if($row){
+      return json_decode($row,true);
+    }else{
+      return false;
+    }
+  }
 
 
 

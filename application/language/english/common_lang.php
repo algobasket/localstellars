@@ -1,11 +1,13 @@
 <?php
 $lang['common_basecurrency']     = "XLM";
-$lang['common_baseCurrencyName'] = "Stellar"; 
+$lang['common_baseCurrencyName'] = "Stellar";  
+$lang['common_fiatbasecurrency'] = "USD"; 
 $lang['common_myProfile'] = "My Profile";
 $lang['common_referral']  = "Referral";
 $lang['common_activity']  = "Activity";
 $lang['common_dashboard']           = "Dashboard";
 $lang['common_buyTokens']           = "Buy Stellars";
+$lang['common_sellTokens']          = "Sell Stellars";
 $lang['common_openTradeAds']        = "Open Trade & Advertisement";
 $lang['common_your_ads']            = "Your Advertisement";
 $lang['common_trades']              = "Trades";
@@ -16,7 +18,7 @@ $lang['common_totalCalculation']    = "Total Calculation";
 $lang['common_enterAmtToCalToken']  = "Enter amount to calculate token";
 $lang['common_AmountCalBasedCurrentTokensPrice']  = "Amount calculated based current stellars price";
 $lang['common_tokensSaleGraph']     = "Trade Graph";
-$lang['common_tokenSalesProgress']  = "Tier Progress";
+$lang['common_tokenSalesProgress']  = "Progress";
 $lang['common_tokensBalance']       = "WALLET BALANCE";
 $lang['common_stellars_balance']    = "Stellars Balance";
 $lang['common_tokenName']           = "Token Name";
@@ -33,7 +35,7 @@ $lang['common_all_notifications']   = "See All Notifications";
 $lang['common_trusted']             = "Trusted"; 
 $lang['common_support']             = "Support"; 
 $lang['common_settings']            = "Settings"; 
-$lang['common_account_security']    = "Account Security"; 
+$lang['common_account_security']    = "Securities"; 
 $lang['common_logout']              = "Logout"; 
 
 
