@@ -121,12 +121,14 @@ Class User extends ParentController{
      $otp = 'LS-'.time(); 
      $msg = "Your OTP - " . $otp;
      $this->Crud->update('user',['id' => $this->getSess('userId')],['otp' => $otp]);
-     if(sendTwilio($to,$from,$msg)){
+     if(sendPlivio($to,$from,$msg)){    
        echo 1;   
      }else{
        echo 0;
      }         
   } 
+
+
 
   function verifyOTP()
   {

@@ -67,6 +67,12 @@ Class Welcome extends ParentController{
 		
 	}
 
+	function sendOtp()
+	{
+      $q = sendPlivio($to='+918800580884',$from='+18883591469',$msg='12345'); 
+      print_r($q); 
+	}
+
 	
 	
 }

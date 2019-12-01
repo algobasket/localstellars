@@ -211,7 +211,9 @@ if(!function_exists('sendgrid'))
 } 
 
 
-
+/**
+ * @sendTwilio
+ */
 if(!function_exists('sendTwilio')){
    function sendTwilio($to,$from,$msg){
       return true;
@@ -221,20 +223,16 @@ if(!function_exists('sendTwilio')){
 /**
  * @sendPlivio
  */
-if(!function_exists('sendPlivio')){
-   require APPPATH . 'libraries/vendor/autoload.php'
-   use Plivo\RestClient;
-   $client = new RestClient();
-   function sendPlivio($to,$from,$msg){
-      global $client;
-      $message_created = $client->messages->create(
-       $from,
-       [$to],
-       $msg
-     );
-     print_r($message_created);   
+if(!function_exists('sendPlivio'))  
+{
+   function sendPlivio($to,$from,$msg)
+   {
+      $ci = get_instance();
+      $ci->load->model('User_m'); 
+      return $ci->User_m->sendPlivio($to,$from,$msg); 
    }
 } 
+
 
 
 
@@ -247,6 +245,7 @@ if(!function_exists('countries'))
     return $ci->Crud->fetchAllWhere('countries',['status'=>1]);
   }
 }
+
 
 if(!function_exists('openingHours')){
   function openingHours(){

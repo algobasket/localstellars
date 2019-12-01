@@ -1,4 +1,5 @@
 <?php 
+ use Plivo\RestClient;
 Class User_m extends CI_Model{
 
 
@@ -250,7 +251,11 @@ Class User_m extends CI_Model{
     
   }
   
-
+  /**
+   * [getUserReferalHistory description]
+   * @param  [type] $userId [description]
+   * @return [type]         [description]
+   */
   function getUserReferalHistory($userId)
   {
          return $this->db->select('referrals.*,referrals.status as statusRef,referrals.created as createdRef,user.*,status.*')
@@ -263,6 +268,11 @@ Class User_m extends CI_Model{
 
   }
 
+  /**
+   * [getVacation description]
+   * @param  [type] $userId [description]
+   * @return [type]         [description]
+   */
   function getVacation($userId)
   {
     $query = $this->db->select('on_vacation')->from('user_detail')->where(['user_id'=>$userId])->get();
@@ -273,6 +283,37 @@ Class User_m extends CI_Model{
       return false;
     }
   }
+
+
+  /**
+   * [sendPlivio description]
+   * @param  [type] $to   [description]
+   * @param  [type] $from [description]
+   * @param  [type] $msg  [description]
+   * @return [type]       [description]
+   */
+  function sendPlivio($to,$from,$msg)
+  {
+      require APPPATH . 'libraries/vendor/autoload.php';
+      $query = $this->db->select('json')
+                        ->from('settings')
+                        ->where(['setting_name'=>'plivio_api'])
+                        ->get();
+      $json   = $query->result_array()[0]['json']; 
+      $api    = json_decode($json,true);
+      try{
+          $client = new RestClient($api['authID'],$api['authToken']); 
+            $message_created = $client->messages->create(
+             $from,
+             [$to],
+             $msg 
+           );  
+          return $message_created->getStatusCode(); 
+      }catch(Ex $e){
+          return $e; 
+      } 
+          
+   } 
 
 
 
