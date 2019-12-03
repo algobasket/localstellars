@@ -332,7 +332,53 @@ $('#sendOTP').click(function(){
         url:path + '/Api/User/sendOTP',   
         data:data,
         success:function(res){ 
-          $('#otp_s').html('<span class="text-success"> OTP Sent</span>');
+          if(res == 1){  
+            $('#otp_s').html('<span class="text-success"> OTP Sent</span>');
+            $('.sendOtp').hide();
+            $('.otp_input').show(); 
+            $('.verifyOtp').show();
+          }
+        }
+    });
+});
+
+$('#verifyOTP').click(function(){ 
+    var enable_disable = $(this).attr('data-2fa') ? 1 : 0;
+    var data = {
+        'otp' : $('#otp-pin').val(),
+        'enable_disable' : enable_disable
+    };
+     
+    console.log(data); 
+    let path = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
+    $.ajax({
+        type:'POST',
+        url:path + '/Api/User/verifyOTP',    
+        data:data,
+        success:function(res){
+          console.log(res);
+
+          if(enable_disable == 1)
+          {
+             if(res == 1){
+               $('#formOtp').hide();   
+               $('#otp_success') 
+               .html('<div class="alert alert-success"><strong>Thank You!</strong><br>Your 2FA Mobile disabled successfully!</div>');
+             }else{
+               $('#otp_error') 
+               .html('<div class="alert alert-danger">Wrong OTP!<br>Please enter your correct recent OTP!</div>');
+             }
+          }else{
+             if(res == 1){
+               $('#formOtp').hide();   
+               $('#otp_success') 
+               .html('<div class="alert alert-success"><strong>Thank You!</strong><br>Your OTP has been verified successfully!</div>');
+             }else{
+               $('#otp_error') 
+               .html('<div class="alert alert-danger">Wrong OTP!<br>Please enter your correct recent OTP!</div>');
+             }
+          }
+         
         }
     });
 });

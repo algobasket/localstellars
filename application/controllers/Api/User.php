@@ -117,11 +117,13 @@ Class User extends ParentController{
 
   function sendOTP()
   {
+     $from = '+18883591469'; 
      $to = cUserDetail()['mobile_number'];
-     $otp = 'LS-'.time(); 
+     $otp = 'LS-'.time();   
      $msg = "Your OTP - " . $otp;
      $this->Crud->update('user',['id' => $this->getSess('userId')],['otp' => $otp]);
-     if(sendPlivio($to,$from,$msg)){    
+     if(sendPlivio($to,$from,$msg) == '202')
+     {    
        echo 1;   
      }else{
        echo 0;
@@ -134,11 +136,14 @@ Class User extends ParentController{
   {
      $to        = cUserDetail()['mobile_number'];
      $query     = $this->Crud->fetchOneWhere('user',['id' => $this->getSess('userId')]);
-     $input_otp = $this->input->post('input_otp');
+     $input_otp = $this->input->post('otp'); 
+     $enable_disable = $this->input->post('enable_disable'); 
      $stored_otp   = $query['otp']; 
-     if($input_otp == $stored_otp){
+     if($input_otp == $stored_otp)
+     {  
+       $this->Crud->update('user_detail',['user_id' => $this->getSess('userId')],['2fa_mobile_status' => $enable_disable]); 
        echo 1;   
-     }else{ 
+     }else{  
        echo 0;
      }         
   }

@@ -156,10 +156,20 @@
                             <div class="d-sm-flex justify-content-between align-items-center pdt-1-5x">
                                 <span class="text-light ucap d-inline-flex align-items-center">
                                     <span class="mb-0"><small>Current Status:</small></span> 
-                                    <span class="badge badge-disabled ml-2">Disabled</span>
+                                    <?php if(cUserDetail()['2fa_mobile_status'] == 1) { ?>
+                                      <span class="badge badge-success ml-2">Active</span>
+                                    <?php }else{ ?>
+                                      <span class="badge badge-disabled ml-2">Disabled</span>
+                                    <?php } ?>
+                                    
                                 </span>
                                 <div class="gaps-2x d-sm-none"></div>
+                                <?php if(cUserDetail()['2fa_mobile_status'] == 1) { ?>
+                                <button class="order-sm-first btn btn-primary" onclick="$('#2fa-mobile-modal-disable').modal('show')">Disable 2FA</button>
+                                <?php }else{ ?>
                                 <button class="order-sm-first btn btn-primary" onclick="$('#2fa-mobile-modal').modal('show')">Enable 2FA</button>
+                                <?php } ?>
+                                
                             </div>
                         </div><!-- .card-innr -->
                     </div><!-- .card -->
@@ -287,7 +297,7 @@
                 <div class="popup-body">
                     <h4 class="popup-title">2FA Mobile Verification</h4> 
                     <p>In order to make your account more secure<a href="#"><strong></strong></a>, please verify your phone number and you have to put your 10 digit phone number below input box. <strong>You will receive a OTP pin and will expire after 1 day</strong></p>
-                    <form action="#">
+                    <form action="#" id="formOtp">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="input-item input-with-label">
@@ -309,11 +319,12 @@
                                 </div><!-- .input-item -->
                             </div><!-- .col -->
                         </div><!-- .row -->
+                        <span id="otp_error"></span>
                         <?php
                          if(cUserDetail()['mobile_number']){ ?> 
                          <div class="input-item input-with-label otp_input" style="display: none">
                             <label for="token-address" class="input-item-label">Enter the OTP pin that your receive:</label>
-                            <input class="input-bordered" type="text" id="token-address" name="token-address" placeholder="OTP PIN">
+                            <input class="input-bordered" type="text" id="otp-pin" placeholder="OTP PIN">
                             <span class="input-note">Note: Check your recent OTP pin.</span>
                         </div><!-- .input-item -->
                         <div class="note note-plane note-danger">
@@ -321,13 +332,83 @@
                             <p>DO NOT GIVE this OTP pin to someone if ask or your account will get compromise</p>
                         </div>
                         <div class="gaps-3x"></div>
+                        <span class="sendOtp"> 
                         <div class="d-sm-flex justify-content-between align-items-center">
                             <button type="button" class="btn btn-primary" id="sendOTP">Send OTP</button>
                             <div class="gaps-2x d-sm-none"></div>
                             <span id="#notify"></span>
                         </div>
+                       </span>
+                        <span class="verifyOtp" style="display: none">
+                        <div class="d-sm-flex justify-content-between align-items-center" > 
+                            <a href="#" class="btn btn-primary" id="verifyOTP" data-2fa="0">Verify OTP</a>
+                            <div class="gaps-2x d-sm-none"></div>
+                            <span id="#otp_s"></span> 
+                        </div>
+                        </span>
                         <?php } ?>
                     </form><!-- form -->
+                    <span id="otp_success"></span>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div>
+    <!-- Modal End -->
+
+    <div class="modal fade" id="2fa-mobile-modal-disable" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Disable Two-Factor Mobile</h4> 
+                    <p>In order to disable 2FA Mobile<a href="#"><strong></strong></a>, please verify your phone number and check your 10 digit phone number below input box. <strong>You will receive a OTP pin and will expire after 1 day</strong></p>
+                    <form action="#" id="formOtp">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-item input-with-label">
+                                    <label for="swalllet" class="input-item-label">Your Phone Number</label>
+
+                            <?php
+                              if(@cUserDetail()['mobile_number'])
+                              { 
+                                 echo '<div class="alert alert-success" style="font-size:14px">'.cUserDetail()['mobile_number'].'</div>';
+                              }else{
+                                 echo "<div class='alert alert-warning alert-block'>Please add your phone number in your profile page then continue!</div>";
+                              }     
+                            ?>
+                                </div><!-- .input-item -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                        <span id="otp_error"></span>
+                        <?php
+                         if(cUserDetail()['mobile_number']){ ?> 
+                         <div class="input-item input-with-label otp_input" style="display: none">
+                            <label for="token-address" class="input-item-label">Enter the OTP pin that your receive:</label>
+                            <input class="input-bordered" type="text" id="otp-pin" placeholder="OTP PIN">
+                            <span class="input-note">Note: Check your recent OTP pin.</span>
+                        </div><!-- .input-item -->
+                        <div class="note note-plane note-danger">
+                            <em class="fas fa-info-circle"></em>
+                            <p>DO NOT GIVE this OTP pin to someone if ask or your account will get compromise</p>
+                        </div>
+                        <div class="gaps-3x"></div>
+                        <span class="sendOtp"> 
+                        <div class="d-sm-flex justify-content-between align-items-center">
+                            <button type="button" class="btn btn-primary" id="sendOTP">Send OTP</button>
+                            <div class="gaps-2x d-sm-none"></div>
+                            <span id="#notify"></span>
+                        </div>
+                       </span>
+                        <span class="verifyOtp" style="display: none">
+                        <div class="d-sm-flex justify-content-between align-items-center" > 
+                            <a href="#" class="btn btn-primary" id="verifyOTP" data-2fa="1">Verify OTP</a>
+                            <div class="gaps-2x d-sm-none"></div>
+                            <span id="#otp_s"></span> 
+                        </div>
+                        </span>
+                        <?php } ?>
+                    </form><!-- form -->
+                    <span id="otp_success"></span>
                 </div>
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->
