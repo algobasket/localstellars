@@ -84,7 +84,7 @@
                                     <a href="<?php echo base_url();?>">
                                         <img style="width:150px" src="<?php echo base_url();?>public/landing-2/images/logo.png" alt="logo">
                                     </a>
-                                    <p style="font-size: 14px; color: #16a1fd; padding-top: 12px;">Thanks for registering with Ixinium.io</p>
+                                    <p style="font-size: 14px; color: #16a1fd; padding-top: 12px;">Thanks for registering with <?php echo lang('site_title');?></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -100,7 +100,7 @@
                                 <td style="padding: 0 30px 20px">
                                     <p style="margin-bottom: 10px;">Hi <?php echo $user;?>,</p>
                                     <p style="margin-bottom: 10px;">Welcome! <br> You are receiving this email because you have registered on our site.</p>
-                                    <p style="margin-bottom: 10px;">Click the link below to active your Ixinium account.</p>
+                                    <p style="margin-bottom: 10px;">Click the link below to active your <?php echo lang('site_title');?> account.</p>
                                     <p style="margin-bottom: 25px;">This link will expire in 24 hours and can only be used once.</p>
                                     <a href="<?php echo base_url();?>verify-email/<?php echo $token;?>" style="background-color:#16a1fd;border-radius:4px;color:#ffffff;display:inline-block;font-size:13px;font-weight:600;line-height:44px;text-align:center;text-decoration:none;text-transform: uppercase; padding: 0 30px" target="__blank">Verify Email</a>
                                 </td>
@@ -115,7 +115,7 @@
                             <tr>
                                 <td style="padding: 20px 30px 40px">
                                     <p>If you did not make this request, please contact us or ignore this message.</p>
-                                    <p style="margin: 0; font-size: 13px; line-height: 22px; color:#9ea8bb;">This is an automatically generated email please do not reply to this email. If you face any issues, please contact us at  office@ixinium.io</p>
+                                    <p style="margin: 0; font-size: 13px; line-height: 22px; color:#9ea8bb;">This is an automatically generated email please do not reply to this email. If you face any issues, please contact us at  <?php echo office_emails();?></p>
                                 </td>
                             </tr>
                         </tbody>
