@@ -1,7 +1,7 @@
 LocalStellars Buy/Sell Trading Platform
 ========================
 
-![logo](https://raw.githubusercontent.com/algobasket/localstellar-ci/master/public/images/localstellars-logo.png?token=AB7ENWJNLCJZUEEHJ2TBAZ252KCDU)
+![logo](http://localstellars.algobasket.com/public/images/localstellars-logo.png) 
 
 Requirements
 ------------
