@@ -98,25 +98,30 @@ if(!function_exists('device_info'))
    */
    function device_info()
    {
-     require APPPATH . 'libraries/mobiledetect/Mobile_Detect.php';
-     require APPPATH . 'libraries/detectdevice/detect.php';
+     
+     try{
+        require APPPATH . 'libraries/mobiledetect/Mobile_Detect.php';
+        require APPPATH . 'libraries/detectdevice/detect.php';
 
-     $ci = get_instance();
-     $ci->load->model('Crud');
-     $country = $ci->Crud->fetchOneWhere('countries',['sortname'=> Detect::ipCountry()]);
-
-     $return = [
-      'deviceType'   => Detect::deviceType(),
-      'ip'           => Detect::ip(),
-      'ipHostname'   => Detect::ipHostname(),
-      'ipOrg'        => Detect::ipOrg(),
-      'ipCountry'    => Detect::ipCountry(),
-      'os'           => Detect::os(),
-      'browser'      => Detect::browser(),
-      'countryName'  => $country['name']
-     ];
-     $ci->session->set_userdata('device_info',$return);
-     return $return;
+        $ci = get_instance();
+        $ci->load->model('Crud');
+        $country = $ci->Crud->fetchOneWhere('countries',['sortname'=> Detect::ipCountry()]);
+     
+        $return = [
+        'deviceType'   => Detect::deviceType() ? Detect::deviceType() : 'unknown',
+        'ip'           => Detect::ip() ? Detect::ip() : 'unknown',
+        'ipHostname'   => Detect::ipHostname() ? Detect::ipHostname() : 'unknown',
+        'ipOrg'        => Detect::ipOrg() ? Detect::ipOrg() : 'unknown',
+        'ipCountry'    => Detect::ipCountry() ? Detect::ipCountry() : 'unknown',
+        'os'           => Detect::os() ? Detect::os() : 'unknown',
+        'browser'      => Detect::browser() ? Detect::browser() : 'unknown',
+        'countryName'  => $country['name'] ? $country['name'] : 'unknown'
+       ];
+       $ci->session->set_userdata('device_info',$return);
+       return $return;
+     }catch(Exception $e){
+       die($e);
+     }
    }
 }
 

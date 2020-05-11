@@ -524,10 +524,22 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
-function __autoload($class)
-{
- if(strpos($class, 'CI_') !== 0)
- {
-  @include_once( APPPATH . 'core/'. $class . '.php' );
- }
-}
+// function __autoload($class)
+// {
+//  if(strpos($class, 'CI_') !== 0)
+//  {
+//   @include_once( APPPATH . 'core/'. $class . '.php' );
+//  }
+// }
+
+spl_autoload_register(function ($class) {
+
+    if (strpos($class, 'CI_') !== 0)
+    {
+        if (is_readable(APPPATH.'core/'.$class.'.php'))
+        {
+            require_once(APPPATH.'core/'.$class.'.php');
+        }
+    }
+
+}); 

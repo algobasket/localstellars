@@ -28,24 +28,24 @@
             <div class="page-ath-form">
                 <h2 class="page-ath-heading"><?php echo $this->lang->line('auth_page_ath_heading2');?></h2>
                 <p><?php echo $this->session->flashdata('notify');?></p>
-                <form action="<?php echo base_url();?>auth/signup" method="POST">
+                <form action="<?php echo base_url();?>auth/signup" method="POST" autocomplete="none"> 
                     <div class="input-item">
-                        <input type="text" placeholder="Your Real Name" class="input-bordered" name="fname" required>
+                        <input type="text" placeholder="Your Real Name" class="input-bordered" name="fname" autocomplete="none" required>
                     </div>
                     <div class="input-item">
-                        <input type="text" placeholder="Username" class="input-bordered" name="username" required>
+                        <input type="text" placeholder="Username" class="input-bordered" name="username" autocomplete="none" autofocus="none" autofill="none" required>
                     </div>
                     <div class="input-item">
-                        <input type="text" placeholder="Your Email" class="input-bordered" name="email" required>
+                        <input type="text" placeholder="Your Email" class="input-bordered" name="email" autocomplete="no" autofill="off" required> 
                     </div>
                     <div class="input-item">
-                        <input type="password" placeholder="Password" class="input-bordered" name="password" required>
+                        <input type="password" placeholder="Password" class="input-bordered" name="password" autocomplete="false" required>
                     </div>
                     <div class="input-item">
-                        <input type="password" placeholder="Repeat Password" class="input-bordered" name="re-password" required>
+                        <input type="password" placeholder="Repeat Password" class="input-bordered" name="re-password" autocomplete="false" required>
                     </div>
                     <div class="input-item text-left">
-                        <input class="input-checkbox input-checkbox-md termCondition" id="term-condition" type="checkbox" />
+                        <input class="input-checkbox input-checkbox-md termCondition" id="term-condition" type="checkbox" /> 
                         <label for="term-condition">I agree to Localstellars’s <a href="regular-page.html">Privacy Policy</a> &amp; <a href="regular-page.html"> Terms.</a></label>
                     </div>
                     <input type="submit" class="btn btn-primary btn-block signupBtn" name="signup" value="<?php echo $this->lang->line('auth_create_account');?>"/>
@@ -86,7 +86,7 @@
     <script>
     (function($){
       'use strict';
-       $('.signupBtn').attr("disabled", true);
+         $('.signupBtn').attr("disabled", true);
          $('.termCondition').click(function(){
           var termCondition = $('.termCondition:checked').val();
           if(termCondition){
@@ -95,6 +95,7 @@
             $('.signupBtn').attr("disabled", true);
           }
        });
+       $('input[type="text"]').val('');
       })(jQuery);
     </script>
 </body>
