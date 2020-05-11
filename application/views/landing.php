@@ -83,7 +83,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Using <?php echo currentBaseCurrency();?></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <?php foreach(baseCurrencies() as $bc) : ?>
-           <a class="dropdown-item" href="<?php echo base_url().'landing/setCoin/'.$bc['currency_symbol'];?>"><?php echo $bc['currency_name'];?> - <?php echo $bc['currency_symbol'];?></a>
+           <a class="dropdown-item" href="<?php echo base_url().'landing/setCoin/'.$bc['currency_symbol'];?>"><?php echo $bc['currency_symbol'];?> - <?php echo $bc['currency_name'];?></a>
           <?php endforeach ;?>
         </div>
       </li>
@@ -110,7 +110,11 @@
       <h2 class="display-3">Buy and sell stellars near you</h2>
       <h4>Instant. Secure. Private.</h4>
       <p> Trade stellars in <strong>7812 cities</strong> and <strong>248 countries</strong> including <?php echo $deviceInfo['countryName'];?>.</p>
-      <p><a class="btn btn-success btn-lg" href="<?php echo base_url();?>auth/signup" role="button">Signup Free &raquo;</a></p>
+      <p>
+        <a class="btn btn-success btn-lg" href="<?php echo base_url();?>auth/signup" role="button">Signup Free &raquo;</a> &nbsp;
+        <a href="https://apps.apple.com/us/app/localstellars-app/" target="_blank"><img src="<?php echo base_url();?>public/images/app-store-badge.svg" width="154.3" class="d-inline-block align-right"/></a>
+        <a href="https://play.google.com/store/apps/details?id=com.localstellars.dev&hl=en" target="_blank"><img src="<?php echo base_url();?>public/images/google-play-badge.svg" width="154.3" class="d-inline-block align-right"/></a>
+      </p>
     </div>
   </div>
 
@@ -208,10 +212,36 @@
 </main>
 
 <footer class="container">
-  <a class="navbar-brand" href="#">
-    <img src="<?php echo base_url();?>public/images/localstellars-logo2.png" width="130" class="d-inline-block align-top"/>
-  </a>
-  <p>&copy; LocalStellars 2017-2019 | Algobasket Production</p>
+  <div class="navbar-brand" href="#">
+    <img src="<?php echo base_url();?>public/images/localstellars-logo2.png" width="250" class="d-inline-block align-right"/>
+    <img src="<?php echo base_url();?>public/images/app-store-badge.svg" width="130" class="d-inline-block align-right"/>
+    <img src="<?php echo base_url();?>public/images/google-play-badge.svg" width="130" class="d-inline-block align-right"/>
+  </div>
+  <p>
+    <span class="font-weight-bold">&copy; LocalStellars 2017-2019 | Algobasket Production</span> 
+    
+    <br>
+    <a class="text-decoration-none text-monospace text-secondary" href>About us</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href>Careers <label class="badge badge-pill badge-primary">Hiring</label></a> |
+    <a class="text-decoration-none text-monospace text-secondary" href>Fees</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href>API</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href>Bounty Program</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href>Affiliate</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href>Terms of service</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href>Privacy</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href>Support</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href>FAQ</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href>Block Explorer</a>
+  </p>
+  <center>
+  Social Media - <a href="" class="text-decoration-none text-monospace text-secondary"><i class="fab fa-facebook-square"></i>
+
+Facebook</a> | 
+  <a href="" class="text-decoration-none text-monospace text-secondary">Twitter</a> |
+  <a href="" class="text-decoration-none text-monospace text-secondary">Reddit</a> |
+  <a href="" class="text-decoration-none text-monospace text-secondary">Telegram</a>
+  </center>
+  <br>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
