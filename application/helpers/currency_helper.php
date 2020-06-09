@@ -77,6 +77,23 @@ if(!function_exists('currentBaseCurrency'))
 }
 
 /**
+ *  Current Base Currency Name
+ */
+if(!function_exists('currentBaseCurrencyName')) 
+{
+   function currentBaseCurrencyName() 
+   {  
+       $ci = get_instance();   
+      if($ci->session->userdata('currentBaseCurrencyName'))
+      { 
+        return $ci->session->userdata('currentBaseCurrencyName');
+      }else{   
+        return lang('common_basecurrency');   
+      }       
+   }
+}
+
+/**
  *  Current Base Currency
  */
 if(!function_exists('currentBaseCurrencyDetail')) 

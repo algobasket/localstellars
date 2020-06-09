@@ -46,10 +46,10 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url();?>buy/<?php echo currentBaseCurrency();?>">Buy Stellars <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url();?>buy/<?php echo currentBaseCurrency();?>">Buy <?php echo currentBaseCurrency();?> <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url();?>sell/<?php echo currentBaseCurrency();?>">Sell Stellars</a>
+        <a class="nav-link" href="<?php echo base_url();?>sell/<?php echo currentBaseCurrency();?>">Sell <?php echo currentBaseCurrency();?></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url();?>advertise">Post a trade</a>
@@ -107,9 +107,9 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h2 class="display-3">Buy and sell stellars near you</h2>
+      <h2 class="display-3">Buy and sell <?php echo currentBaseCurrency();?> near you</h2>
       <h4>Instant. Secure. Private.</h4>
-      <p> Trade stellars in <strong>7812 cities</strong> and <strong>248 countries</strong> including <?php echo $deviceInfo['countryName'];?>.</p>
+      <p> Trade <?php echo currentBaseCurrency();?> in <strong>7812 cities</strong> and <strong>248 countries</strong> including <?php echo $deviceInfo['countryName'];?>.</p>
       <p>
         <a class="btn btn-success btn-lg" href="<?php echo base_url();?>auth/signup" role="button">Signup Free &raquo;</a> &nbsp;
         <a href="https://apps.apple.com/us/app/localstellars-app/" target="_blank"><img src="<?php echo base_url();?>public/images/app-store-badge.svg" width="154.3" class="d-inline-block align-right"/></a>
@@ -157,8 +157,8 @@
       </div>
     </div>
     <br>
-    <div class="row">
-      <h4 class="display-6">Buy <?php echo currentBaseCurrency();?> stellars online in <?php echo $deviceInfo['countryName'];?></h4>
+    <div class="row"> 
+      <h4 class="display-6">Buy <?php echo currentBaseCurrency();?> online in <?php echo $deviceInfo['countryName'];?></h4>
       <table class="table">
          <thead>
            <tr>
@@ -183,7 +183,7 @@
 
     <br>
     <div class="row">
-      <h4 class="display-6">Sell <?php echo currentBaseCurrency();?> stellars online in <?php echo $deviceInfo['countryName'];?></h4>
+      <h4 class="display-6">Sell <?php echo currentBaseCurrency();?> online in <?php echo $deviceInfo['countryName'];?></h4>
       <table class="table">
          <thead>
            <tr>
