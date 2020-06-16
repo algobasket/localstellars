@@ -122,39 +122,65 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-left">
-         Who We Are
+        <br> 
+        <h1 class="text-left display-4">  
+         About Our Platform
         </h1>
         <hr>
-        <blockquote>
-        Localstellars is a cryptocurrency derivatives trading platform developed by Algobasket in March 2020 and registered in the BVI. 
-        It is headquartered in Singapore. Languages added North America, Europe, Russia, 
-        Japan, South Korea and Southeast Asia, and are focused on serving everyone from individual retail clients to professional derivatives traders.
-         To these ends, we provide 24/7 multi-language online customer service in order to give solutions for our users in a timely manner and are committed to creating a fair, 
-         transparent and efficient trading environment. Currently, the products on the platform include BTC/USD, ETH/USD, XRP/USD and EOS/USD perpetual contracts.
-        </blockquote>
-        <h1 class="text-left">
+        <p class="lead">
+        Using Localstellars application, people from different countries can exchange their local currency to various crypto currencies. 
+        The site allows users to post advertisements where they state exchange rate and payment methods for buying or selling bitcoins.
+         By replying to these advertisements, a trade is opened and escrow protection is automatically activated. Escrow protects both buyer and seller, 
+         by keeping the bitcoins safe until the payment is done and the seller releases bitcoins to the buyer. Cryptocurrencies are placed in web wallet from where you can pay your various coins purchases directly.
+        </p> 
+        <h1 class="text-left display-4">
          Our Core Developer Team 
         </h1>
         <hr>
-        <blockquote>
+        <p class="lead">
         Bybit is a cryptocurrency derivatives trading platform established in March 2018 and registered in the BVI. 
         It is headquartered in Singapore. We have users from all over the world including North America, Europe, Russia, 
         Japan, South Korea and Southeast Asia, and are focused on serving everyone from individual retail clients to professional derivatives traders.
          To these ends, we provide 24/7 multi-language online customer service in order to give solutions for our users in a timely manner and are committed to creating a fair, 
          transparent and efficient trading environment. Currently, the products on the platform include BTC/USD, ETH/USD, XRP/USD and EOS/USD perpetual contracts.
-        </blockquote>
-        <h1 class="text-left">
+        </p>
+        <h1 class="text-left display-4">
          Why Trade With Us  
         </h1>
         <hr>
-        <blockquote>
+        <p class="lead">
         Bybit is a cryptocurrency derivatives trading platform established in March 2018 and registered in the BVI. 
         It is headquartered in Singapore. We have users from all over the world including North America, Europe, Russia, 
         Japan, South Korea and Southeast Asia, and are focused on serving everyone from individual retail clients to professional derivatives traders.
          To these ends, we provide 24/7 multi-language online customer service in order to give solutions for our users in a timely manner and are committed to creating a fair, 
          transparent and efficient trading environment. Currently, the products on the platform include BTC/USD, ETH/USD, XRP/USD and EOS/USD perpetual contracts.
-        </blockquote>
+        </p>
+        <h1 class="text-left display-4">
+        Contact Us  
+        </h1>
+        <hr>
+        <!-- <div class="col-md-12">
+          <div class="col-md-3"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Listing Application</b> - Listing@localstellars.com</div>
+          <div class="col-md-3"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> Listing Application - Listing@localstellars.com</div>
+          <div class="col-md-3"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> Listing Application - Listing@localstellars.com</div>
+        </div> -->
+        
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                <td scope="row"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Listing Application -</b><small>Listing@localstellars.com</small></td>
+                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Product Feedback -</b><small>Listing@localstellars.com</small></td>
+                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>PR & Marketing -</b><small>Listing@localstellars.com</small></td>
+                </tr>
+                <tr>
+                <td scope="row"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Business Development</b> <br>Listing@localstellars.com</td>
+                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>OTC</b> <br>Listing@localstellars.com</td>
+                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Listing Application</b> <br>Listing@localstellars.com</td>
+                </tr> 
+            </tbody>
+        </table>
+
+
       </div>
     </div>
     <br>
@@ -185,7 +211,7 @@
     <a class="text-decoration-none text-monospace text-secondary" href>FAQ</a> |
     <a class="text-decoration-none text-monospace text-secondary" href>Block Explorer</a>
   </p>
-  <center>
+  <center> 
   Social Media - <a href="" class="text-decoration-none text-monospace text-secondary"><i class="fab fa-facebook-square"></i>
 
 Facebook</a> | 
