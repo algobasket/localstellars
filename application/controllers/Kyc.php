@@ -10,6 +10,10 @@ Class Kyc extends ParentController{
     $this->load->model('Kycs_m');
   } 
   
+ /**
+   * [KYC form function] 
+   */
+
 
   function form()
   {  
@@ -161,6 +165,10 @@ Class Kyc extends ParentController{
   }
   
 
+   /**
+   * [KYC application]
+   */
+
   function application()
   { 
 
@@ -172,6 +180,10 @@ Class Kyc extends ParentController{
     $data = $this->Kycs_m->getKycDetail($this->getSess('userId'));
     $this->frontend('kyc-details',['detail' => $data]);
   }
+  
+   /**
+   * [Thankyou Message]
+   */
 
   function thankyou()
   {

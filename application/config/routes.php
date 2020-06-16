@@ -51,18 +51,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'landing';
 
-$route['profile'] = 'Welcome/profile';
-$route['buy-token'] = 'Token/buyToken';
+//Welcome Router  
+$route['profile']          = 'Welcome/profile';
 $route['ico-distribution'] = 'Welcome/ico_distribution';
-$route['transactions'] = 'Transaction/userTransactions';
 $route['activity'] = 'Welcome/activity';
-$route['referral'] = 'Welcome/referral';
-$route['whitepaper'] = 'Landing/whitepaper';
-$route['advertise'] = 'Landing/advertise';
-$route['buy/(:any)'] = 'Landing/buy/$1';
-$route['sell/(:any)'] = 'Landing/sell/$1'; 
-$route['referral/(:any)'] = 'Auth/referral/$1';
+$route['referral'] = 'Welcome/referral'; 
+
+//Landing Router
+$route['whitepaper']  = 'Landing/whitepaper';
+$route['advertise']   = 'Landing/advertise';
+$route['buy/(:any)']  = 'Landing/buy/$1';
+$route['sell/(:any)'] = 'Landing/sell/$1';
+$route['about-us']    = 'Landing/about_us';
+ 
+//Auth Router
+$route['referral/(:any)']     = 'Auth/referral/$1';
 $route['verify-email/(:any)'] = 'Auth/verifyAccountEmail/$1';
 
-$route['404_override'] = '';
+//BuyToken Router
+$route['buy-token'] = 'Token/buyToken';
+
+//Transaction
+$route['transactions'] = 'Transaction/userTransactions';
+
+$route['404_override'] = ''; 
 $route['translate_uri_dashes'] = FALSE;

@@ -217,6 +217,16 @@ Class Landing extends ParentController{
        }
     }
 
+
+
+   /**
+   * [About Us]
+   */
+  function about_us()
+  {
+     $this->load->view('frontend/about-us',$data=[]);
+  }
+
     
     function test(){ 
         echo currentFiatBaseCurrency();   
