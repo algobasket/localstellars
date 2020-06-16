@@ -127,8 +127,8 @@
         </h1>
         <hr>
         <blockquote>
-        Bybit is a cryptocurrency derivatives trading platform established in March 2018 and registered in the BVI. 
-        It is headquartered in Singapore. We have users from all over the world including North America, Europe, Russia, 
+        Localstellars is a cryptocurrency derivatives trading platform developed by Algobasket in March 2020 and registered in the BVI. 
+        It is headquartered in Singapore. Languages added North America, Europe, Russia, 
         Japan, South Korea and Southeast Asia, and are focused on serving everyone from individual retail clients to professional derivatives traders.
          To these ends, we provide 24/7 multi-language online customer service in order to give solutions for our users in a timely manner and are committed to creating a fair, 
          transparent and efficient trading environment. Currently, the products on the platform include BTC/USD, ETH/USD, XRP/USD and EOS/USD perpetual contracts.
@@ -145,7 +145,7 @@
          transparent and efficient trading environment. Currently, the products on the platform include BTC/USD, ETH/USD, XRP/USD and EOS/USD perpetual contracts.
         </blockquote>
         <h1 class="text-left">
-         Why Trade With Us 
+         Why Trade With Us  
         </h1>
         <hr>
         <blockquote>
