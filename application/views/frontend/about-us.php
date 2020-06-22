@@ -167,15 +167,34 @@
         
         <table class="table table-borderless">
             <tbody>
+                <!-- <tr>
+                <td scope="row"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Listing Application</b><small> - la@localstellars.com</small></td>
+                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Product Feedback -</b><small>pf@localstellars.com</small></td>
+                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>PR & Marketing -</b><small>prm@localstellars.com</small></td>
+                </tr> -->
                 <tr>
-                <td scope="row"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Listing Application -</b><small>Listing@localstellars.com</small></td>
-                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Product Feedback -</b><small>Listing@localstellars.com</small></td>
-                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>PR & Marketing -</b><small>Listing@localstellars.com</small></td>
+                <td scope="row">
+                   <a href="mailto:list@localstellar.com">
+                   <img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> 
+                      <b class="text-decoration-none text-dark">Listing Application</b>
+                    </a>
+                </td> 
+                <td>
+                   <a href="mailto:pf@localstellar.com"><img src="<?php echo base_url();?>public/images/message.png" width="70"/> <b class="text-decoration-none text-dark">Product Feedback </b></a>
+                </td>
+                <td>
+                  <a href="mailto:prm@localstellar.com"><img src="<?php echo base_url();?>public/landing/images/icon-5.png" width="75"/> <b class="text-decoration-none text-dark">PR & Marketing </b></a> 
+                </td>
                 </tr>
                 <tr>
-                <td scope="row"><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Business Development</b> <br>Listing@localstellars.com</td>
-                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>OTC</b> <br>Listing@localstellars.com</td>
-                <td><img src="<?php echo base_url();?>public/images/filecheck.png" width="50"/> <b>Listing Application</b> <br>Listing@localstellars.com</td>
+                <td scope="row">
+                   <a href="mailto:bdm@localstellar.com"><img src="<?php echo base_url();?>public/landing/images/icon-4.png" width="65"/> <b class="text-decoration-none text-dark">Business Development</b><a>
+                </td> 
+                <td> 
+                   <a href="mailto:otc@localstellar.com"><img src="<?php echo base_url();?>public/images/otc.png" width="70"/> <b class="text-decoration-none text-dark">OTC</b> </a></td>
+                <td>
+                   <a href="mailto:ah@localstellar.com"><img src="<?php echo base_url();?>public/landing/images/icon-1.png" width="70"/> <b class="text-decoration-none text-dark">Account Help</b></a>
+                </td>
                 </tr> 
             </tbody>
         </table>
@@ -199,17 +218,17 @@
     <span class="font-weight-bold">&copy; LocalStellars 2017-2019 | Algobasket Production</span> 
     
     <br>
-    <a class="text-decoration-none text-monospace text-secondary" href>About us</a> |
-    <a class="text-decoration-none text-monospace text-secondary" href>Careers <label class="badge badge-pill badge-primary">Hiring</label></a> |
-    <a class="text-decoration-none text-monospace text-secondary" href>Fees</a> |
-    <a class="text-decoration-none text-monospace text-secondary" href>API</a> | 
-    <a class="text-decoration-none text-monospace text-secondary" href>Bounty Program</a> |
-    <a class="text-decoration-none text-monospace text-secondary" href>Affiliate</a> | 
-    <a class="text-decoration-none text-monospace text-secondary" href>Terms of service</a> | 
-    <a class="text-decoration-none text-monospace text-secondary" href>Privacy</a> | 
-    <a class="text-decoration-none text-monospace text-secondary" href>Support</a> | 
-    <a class="text-decoration-none text-monospace text-secondary" href>FAQ</a> |
-    <a class="text-decoration-none text-monospace text-secondary" href>Block Explorer</a>
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>about-us">About us</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>careers">Careers <label class="badge badge-pill badge-primary">Hiring</label></a> |
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>fees">Fees</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>api">API</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>bounty-program">Bounty Program</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>affiliate">Affiliate</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>tos">Terms of service</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>privacy">Privacy</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>support">Support</a> | 
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>faq">FAQ</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>block-explorer">Block Explorer</a>
   </p>
   <center> 
   Social Media - <a href="" class="text-decoration-none text-monospace text-secondary"><i class="fab fa-facebook-square"></i>

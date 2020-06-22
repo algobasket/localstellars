@@ -29,7 +29,7 @@
                                     <li><a href="<?php echo $baseurl;?>Landing/english">English</a></li>
                                     <li><a href="<?php echo $baseurl;?>Landing/spanish">Spanish</a></li>
                                     <li><a href="<?php echo $baseurl;?>Landing/hindi">Hindi</a></li>
-                                    <li><a href="<?php echo $baseurl;?>Landing/urdu">Urdu</a></li>
+                                    <li><a href="<?php echo $baseurl;?>Landing/urdu">Urdu</a></li> 
                                 </ul>
                             </div>
                         </div>

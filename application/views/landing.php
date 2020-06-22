@@ -221,7 +221,7 @@
     <span class="font-weight-bold">&copy; LocalStellars 2017-2019 | Algobasket Production</span> 
     
     <br>
-    <a class="text-decoration-none text-monospace text-secondary" href>About us</a> |
+    <a class="text-decoration-none text-monospace text-secondary" href="<?php echo base_url();?>about-us">About us</a> |
     <a class="text-decoration-none text-monospace text-secondary" href>Careers <label class="badge badge-pill badge-primary">Hiring</label></a> |
     <a class="text-decoration-none text-monospace text-secondary" href>Fees</a> |
     <a class="text-decoration-none text-monospace text-secondary" href>API</a> | 

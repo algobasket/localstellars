@@ -57,12 +57,17 @@ $route['ico-distribution'] = 'Welcome/ico_distribution';
 $route['activity'] = 'Welcome/activity';
 $route['referral'] = 'Welcome/referral'; 
 
-//Landing Router
+//Landing Router 
 $route['whitepaper']  = 'Landing/whitepaper';
 $route['advertise']   = 'Landing/advertise';
 $route['buy/(:any)']  = 'Landing/buy/$1';
 $route['sell/(:any)'] = 'Landing/sell/$1';
 $route['about-us']    = 'Landing/about_us';
+$route['careers']     = 'Landing/careers';
+$route['fees']        = 'Landing/fees';
+$route['api']        = 'Landing/api';
+$route['bounty-program']  = 'Landing/bounty_program';
+$route['affiliate']       = 'Landing/affiliate';
  
 //Auth Router
 $route['referral/(:any)']     = 'Auth/referral/$1';
