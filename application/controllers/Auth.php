@@ -12,7 +12,7 @@ Class Auth extends ParentController{
     /**
      * [__construct description]
      */
-	function __construct()
+	function __construct() 
 	{
 		parent::__construct();
 		$this->load->model('Login_m');

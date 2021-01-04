@@ -12,6 +12,7 @@ Class Account extends ParentController{
     $this->load->model('User_m'); 
   }
 
+
   function profile() 
   {
 
@@ -21,6 +22,7 @@ Class Account extends ParentController{
       $this->load->view('frontend/public_profile');
     }
   }
+
 
   function wallet()
   {
@@ -33,6 +35,7 @@ Class Account extends ParentController{
     $data['info'] = $this->User_m->getUserData($this->getSess('userId')); 
     $this->frontend('wallet-receive',[]);
   }
+  
 
   function wallet_transactions()
   {
