@@ -7,7 +7,7 @@ Class Kycs_m extends CI_Model{
     		parent::__construct();
     	} 
         
-      function getAllKycs($KycStatus)
+      function getAllKycs($KycStatus) 
       {
            $this->db->select('user.*,user_detail.*,status.*');
            $this->db->from('user');
@@ -26,6 +26,7 @@ Class Kycs_m extends CI_Model{
             return $data;   
           }	
       }
+      
 
       function isKycVerified($uid) 
       {

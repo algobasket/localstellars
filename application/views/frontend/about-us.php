@@ -19,7 +19,7 @@
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
-        -webkit-user-select: none;
+        -webkit-user-select: none; 
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
