@@ -5,7 +5,8 @@ Class Kycs_m extends CI_Model{
     	function __construct()
     	{
     		parent::__construct();
-    	} 
+      } 
+      
         
       function getAllKycs($KycStatus) 
       {
