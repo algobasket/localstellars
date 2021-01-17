@@ -35,7 +35,8 @@
     <link href="https://getbootstrap.com/docs/4.3/examples/jumbotron/jumbotron.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#0e1e3d"> 
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#0e1e3d"> 
   <a class="navbar-brand" href="#">
     <img src="<?php echo base_url();?>public/images/localstellars-logo2.png" width="130" class="d-inline-block align-top"/>
   </a>
